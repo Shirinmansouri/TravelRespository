@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+     tools:showIn="navigation_view">
+<item android:id="@+id/nav_home"
+    android:title="Home"
+    android:icon="@drawable/ic_baseline_home_24"
+    />
+    <item android:id="@+id/nav_cruise"
+        android:title="Cruises"
+        android:icon="@drawable/ic_baseline_book_online_24"
+        />
+    <item android:id="@+id/nav_bookingList"
+        android:title="BookingList"
+        android:icon="@drawable/ic_baseline_list_24"
+        />
+    <item android:title="Profile">
+
+<menu>
+    <item android:id="@+id/nav_editCustomer"
+        android:title="Account"
+        android:icon="@drawable/ic_baseline_edit_24">
+
+    </item>
+    <item android:id="@+id/nav_Logout"
+        android:title="LogOut"
+        android:icon="@drawable/ic_baseline_login_24">
+
+    </item>
+</menu>
+    </item>
+</menu>
