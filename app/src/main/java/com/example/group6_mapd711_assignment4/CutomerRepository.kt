@@ -19,7 +19,24 @@ class CustomerRepository {
             return TravelDatabase.getDataseClient(context)
         }
 
-
+        fun updateCustomer(context: Context, userName: String, password: String,
+                           firstname : String ,
+                           lastname : String ,
+                           address : String ,
+                           city : String ,
+                           postalCode : String ,
+                           telephone : String ,
+                           email : String,
+                           customerId : Int?
+        )
+            {
+                travelDatabase = initializeDB(context)
+                CoroutineScope(IO).launch {
+                    val customerDetails = CustomerModel(userName, password,firstname,lastname,
+                        address,city,postalCode,telephone,email,customerId)
+                    travelDatabase!!.customerDao().updateCustomer(customerDetails)
+                }
+            }
         //Initialize insertCustomer()
         fun insertCustomer(context: Context, userName: String, password: String,
                            firstname : String ,
