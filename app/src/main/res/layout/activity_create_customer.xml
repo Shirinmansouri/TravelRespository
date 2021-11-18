@@ -8,210 +8,131 @@
 
     <EditText
         android:id="@+id/txtNewUserName"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="UserName"
         android:singleLine="true"
-        app:layout_constraintStart_toEndOf="@id/lblUserName3"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtFirstName"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="FirstName"
         android:singleLine="true"
-        app:layout_constraintStart_toEndOf="@id/lblFirstName3"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtNewUserName" />
 
     <EditText
         android:id="@+id/txtLastName"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="LastName"
         android:singleLine="true"
-        app:layout_constraintStart_toEndOf="@id/lblLastName3"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtFirstName" />
 
     <EditText
         android:id="@+id/txtEmail"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="Email"
         android:singleLine="true"
-        app:layout_constraintStart_toEndOf="@id/lblEmail3"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtLastName" />
 
     <EditText
         android:id="@+id/txtCity"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="City"
         android:singleLine="true"
-        app:layout_constraintStart_toEndOf="@id/lblCity3"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtAddress" />
 
     <EditText
         android:id="@+id/txtPostalCode"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="PostalCode"
         android:singleLine="true"
-        app:layout_constraintStart_toEndOf="@id/lblPostalCode3"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtCity" />
 
     <EditText
         android:id="@+id/txtPhone"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="Phone"
         android:singleLine="true"
-        app:layout_constraintStart_toEndOf="@id/lblCellPhone3"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtPostalCode" />
 
     <EditText
         android:id="@+id/txtNewPassword"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="Password"
         android:password="true"
         android:singleLine="true"
-        app:layout_constraintStart_toEndOf="@id/lblPasswordNew"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtPhone" />
 
     <EditText
         android:id="@+id/txtAddress"
-        android:layout_width="220dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/edit_text_border"
+        android:hint="Address"
         android:singleLine="true"
-        app:layout_constraintStart_toEndOf="@id/lblAddress3"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtEmail" />
-
-    <TextView
-        android:id="@+id/lblUserName3"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="1dp"
-        android:text="UserName:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/lblFirstName3"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:text="FirstName:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/lblUserName3" />
-
-    <TextView
-        android:id="@+id/lblLastName3"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:text="LastName:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/lblFirstName3" />
-
-    <TextView
-        android:id="@+id/lblEmail3"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:text="Email:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/lblLastName3" />
-
-    <TextView
-        android:id="@+id/lblAddress3"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:text="Address:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/lblEmail3" />
-
-    <TextView
-        android:id="@+id/lblCity3"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:text="City:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/lblAddress3" />
-
-    <TextView
-        android:id="@+id/lblPostalCode3"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:text="PostalCode:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/lblCity3" />
-
-    <TextView
-        android:id="@+id/lblCellPhone3"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:text="Phone:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/lblPostalCode3" />
-
-    <TextView
-        android:id="@+id/lblPasswordNew"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:text="Password:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/lblCellPhone3" />
 
     <Button
         android:id="@+id/btnSave"
-        android:layout_width="150dp"
+        android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginStart="188dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="3dp"
+        android:backgroundTint="@color/blue"
         android:text="Create"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtNewPassword" />
 
