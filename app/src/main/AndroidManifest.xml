@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Group6_MAPD711_Assignment4">
         <activity
+            android:name=".MainMenuActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddCustomerResultActivity"
+            android:exported="true" />
+        <activity
             android:name=".CreateCustomerActivity"
             android:exported="true" />
         <activity
