@@ -56,9 +56,11 @@
         android:layout_height="50dp"
         android:layout_marginStart="110dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="110dp"
         android:backgroundTint="@color/gray"
         android:onClick="createNewCustomer"
         android:text="New Account"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblNewCustomer" />
 
@@ -68,8 +70,10 @@
         android:layout_height="27dp"
         android:layout_marginStart="110dp"
         android:layout_marginTop="70dp"
+        android:layout_marginEnd="110dp"
         android:text="A New Customer ?"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnLogin" />
 
