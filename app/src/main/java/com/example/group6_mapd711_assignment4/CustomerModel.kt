@@ -13,8 +13,6 @@ data class CustomerModel(
     var password: String,
     @ColumnInfo(name = "firstname")
     var firstName: String,
-    @ColumnInfo(name = "email")
-    var email: String,
     @ColumnInfo(name = "lastname")
     var lastName: String,
     @ColumnInfo(name = "address")
@@ -25,7 +23,8 @@ data class CustomerModel(
     var postalCode: String,
     @ColumnInfo(name = "telephone")
     var telephone: String,
-
+    @ColumnInfo(name = "email")
+    var email: String,
     @PrimaryKey(autoGenerate = true)
 @ColumnInfo(name = "customerId")
 var customerId: Int? = null

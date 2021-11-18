@@ -88,12 +88,11 @@ class CreateCustomerActivity : AppCompatActivity() {
                 customerViewModel.getCustomer(context, txtUserName.text.toString().trim())!!.
                 observe(this, Observer
                 {
-
                     if (it == null) {
                         customerViewModel.insertCustomer(context, txtUserName.text.toString().trim(),strNewPassword.text.toString().trim(),strFirstName.text.toString().trim(),
                             strLastName.text.toString().trim(),strAddress.text.toString().trim(),strCity.text.toString().trim(),strPostalCode.text.toString().trim(),strPhone.text.toString().trim(),
                             strEmail.text.toString().trim())
-                        Toast.makeText( context,"Your Account Has Been Successfully Created",Toast.LENGTH_LONG).show()
+
                         var intent = Intent(this, AddCustomerResultActivity::class.java)
                         val sharedPreferences : SharedPreferences = this.getSharedPreferences("UserProfile", 0)
                         val editor : SharedPreferences.Editor = sharedPreferences.edit()

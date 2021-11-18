@@ -4,86 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray2"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/lblUserName"
-        android:layout_width="96dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="120dp"
-        android:text="UserName:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/lblPassword"
-        android:layout_width="96dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:text="Password:"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/lblUserName" />
 
     <EditText
         android:id="@+id/txtUserName"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/edit_text_border"
+        android:hint=" User Name"
         android:singleLine="true"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lblUserName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageButton" />
 
     <EditText
         android:id="@+id/txtPassword"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="30dp"
+        android:hint="Password"
         android:password="true"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/lblPassword"
-        app:layout_constraintTop_toTopOf="@id/txtUserName" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtUserName"
+        android:background="@drawable/edit_text_border"/>
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="145dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
         android:text="Login"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtPassword" />
+        app:layout_constraintTop_toBottomOf="@id/txtPassword"
+        android:backgroundTint="@color/blue"/>
 
     <Button
         android:id="@+id/btnCreateNewAccount"
         android:layout_width="145dp"
         android:layout_height="50dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="28dp"
-        android:text="New Account"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/gray"
         android:onClick="createNewCustomer"
+        android:text="New Account"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblNewCustomer" />
 
     <TextView
         android:id="@+id/lblNewCustomer"
-        android:layout_width="188dp"
+        android:layout_width="145dp"
         android:layout_height="27dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="70dp"
         android:text="A New Customer ?"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="130dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/login_foreground" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
