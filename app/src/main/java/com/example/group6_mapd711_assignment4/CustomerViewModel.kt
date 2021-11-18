@@ -12,6 +12,20 @@ class CustomerViewModel : ViewModel() {
     var liveDataCustomer: LiveData<CustomerModel>? = null
 
     //
+    fun updateCustomer(context: Context,userName: String, password: String,
+                       firstname : String ,
+                       lastname : String ,
+                       address : String ,
+                       city : String ,
+                       postalCode : String ,
+                       telephone : String ,
+                       email : String,
+                       customerId : Int?)
+    {
+        CustomerRepository.updateCustomer(context, userName, password,firstname,lastname,
+            address,city,postalCode,telephone,email,
+            customerId  )
+    }
     fun insertCustomer(context: Context, userName: String, password: String,
                        firstname : String ,
                        lastname : String ,

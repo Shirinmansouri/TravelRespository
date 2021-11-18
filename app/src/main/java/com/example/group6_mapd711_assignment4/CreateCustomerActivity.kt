@@ -93,7 +93,7 @@ class CreateCustomerActivity : AppCompatActivity() {
                             strLastName.text.toString().trim(),strAddress.text.toString().trim(),strCity.text.toString().trim(),strPostalCode.text.toString().trim(),strPhone.text.toString().trim(),
                             strEmail.text.toString().trim())
 
-                        var intent = Intent(this, AddCustomerResultActivity::class.java)
+                        var intent = Intent(this, EditCustomerActivity::class.java)
                         val sharedPreferences : SharedPreferences = this.getSharedPreferences("UserProfile", 0)
                         val editor : SharedPreferences.Editor = sharedPreferences.edit()
                         editor.putString("UserName",  txtUserName.text.toString().trim())
