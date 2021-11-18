@@ -11,11 +11,13 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/edit_text_border"
         android:hint="UserName"
         android:singleLine="true"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,10 +27,12 @@
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/edit_text_border"
         android:hint="FirstName"
         android:singleLine="true"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtNewUserName" />
 
@@ -38,10 +42,12 @@
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/edit_text_border"
         android:hint="LastName"
         android:singleLine="true"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtFirstName" />
 
@@ -51,10 +57,12 @@
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/edit_text_border"
         android:hint="Email"
         android:singleLine="true"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtLastName" />
 
@@ -64,10 +72,12 @@
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/edit_text_border"
         android:hint="City"
         android:singleLine="true"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtAddress" />
 
@@ -77,10 +87,12 @@
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/edit_text_border"
         android:hint="PostalCode"
         android:singleLine="true"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtCity" />
 
@@ -90,10 +102,12 @@
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/edit_text_border"
         android:hint="Phone"
         android:singleLine="true"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtPostalCode" />
 
@@ -103,11 +117,13 @@
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/edit_text_border"
         android:hint="Password"
         android:password="true"
         android:singleLine="true"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtPhone" />
 
@@ -117,10 +133,12 @@
         android:layout_height="40dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/edit_text_border"
         android:hint="Address"
         android:singleLine="true"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtEmail" />
 
@@ -130,9 +148,11 @@
         android:layout_height="60dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="3dp"
+        android:layout_marginEnd="30dp"
         android:backgroundTint="@color/blue"
         android:text="Create"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtNewPassword" />
 
