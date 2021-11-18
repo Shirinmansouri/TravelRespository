@@ -3,6 +3,9 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 
+import com.soywiz.korte.Template
+
+
 //provides data to the UI and acts as a communication center
 // between the Repository and the UI.
 class BookingViewModel : ViewModel() {
