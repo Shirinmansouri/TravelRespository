@@ -10,7 +10,7 @@ class CruiseRepository {
     companion object {
         var travelDatabase: TravelDatabase? = null
         var cruiseModel: LiveData<CruiseModel>? = null
-
+       var lstCruiseModel :LiveData<List<CruiseModel>>? = null
         //initialize database
         fun initializeDB(context: Context): TravelDatabase {
             return TravelDatabase.getDataseClient(context)
@@ -42,11 +42,11 @@ class CruiseRepository {
             return cruiseModel
         }
         //Initialize getAllCruises()
-        fun getAllCruises(context: Context): LiveData<CruiseModel>? {
+        fun getAllCruises(context: Context): LiveData<List<CruiseModel>>? {
 
             travelDatabase = initializeDB(context)
-            cruiseModel = travelDatabase!!.cruiseDao().getAllCruises()
-            return cruiseModel
+            lstCruiseModel = travelDatabase!!.cruiseDao().getAllCruises()
+            return lstCruiseModel
         }
     }
 }

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CruiseTypeFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SearchCustomerActivity"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/headerCustomerSearch">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/headerTextViewCustomerSearch"
+                android:text="Select Your Destination"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/blue"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/centerSection"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_below="@+id/headerCustomerSearch"
+            tools:context=".SearchCustomerActivity">
+
+            <ListView
+                android:id="@+id/listViewCustomerSearch"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+
+
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/footerSection"
+            android:layout_below="@+id/centerSection">
+
+            <Button
+                android:id="@+id/btnNext1"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="30dp"
+                android:backgroundTint="@color/blue"
+                android:text="Next"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/centerSection"
+
+                tools:ignore="NotSibling" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</FrameLayout>

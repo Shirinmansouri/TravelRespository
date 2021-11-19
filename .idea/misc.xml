@@ -11,8 +11,11 @@
         <entry key="app/src/main/res/layout/activity_edit_customer.xml" value="0.19519927536231885" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.22146739130434784" />
+        <entry key="app/src/main/res/layout/cutome_list_view.xml" value="0.21784420289855072" />
+        <entry key="app/src/main/res/layout/fragment_cruise_type.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/fragment_edit_customer.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19157608695652173" />
+        <entry key="app/src/main/res/layout/fragment_packages.xml" value="0.21784420289855072" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.1956521739130435" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.23385416666666667" />
         <entry key="app/src/main/res/menu/nav_menu.xml" value="0.24947916666666667" />

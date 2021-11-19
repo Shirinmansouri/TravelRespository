@@ -18,6 +18,6 @@ interface CruiseDao {
 
     //defining a query method using @Query Annotation
     @Query("SELECT * FROM cruise  ")
-    fun getAllCruises() : LiveData<CruiseModel>
+    fun getAllCruises() : LiveData<List<CruiseModel>>
 
 }

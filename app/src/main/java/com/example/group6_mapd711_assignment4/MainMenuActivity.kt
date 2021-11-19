@@ -59,11 +59,11 @@ class MainMenuActivity : AppCompatActivity() {
                         loadFragment(EditCustomerFragment())
                         draweLayout.closeDrawers()
                     }
-                    R.id.nav_cruise -> Toast.makeText(
-                        applicationContext,
-                        "cruise",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    R.id.nav_cruise ->
+                    {
+                        loadFragment(CruiseTypeFragment())
+                        draweLayout.closeDrawers()
+                    }
                     R.id.nav_bookingList -> Toast.makeText(
                         applicationContext,
                         "bookingList",
@@ -85,6 +85,11 @@ class MainMenuActivity : AppCompatActivity() {
     }
     fun backFromFragment()
     {
+
+    }
+    fun goToPackages()
+    {
+     loadFragment(PackagesFragment())
 
     }
     private fun loadFragment(fragment: Fragment){
