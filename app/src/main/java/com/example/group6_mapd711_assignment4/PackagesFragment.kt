@@ -42,7 +42,7 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
         val cruiseType = shared?.getString("CruiseType", "")
         val btnNext = view.findViewById(R.id.btnNext2) as Button
 
-      //  cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3")
+       cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3 nights")
         //cruiseViewModel.insertCruise(requireContext(),"Caribbean","Zohreh,Ali","$500","4")
         //cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javid,Ali","$800","8")
        // cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3")
