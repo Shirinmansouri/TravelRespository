@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.EditCustomerFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="410dp"
+        android:layout_height="700dp">
+
+        <EditText
+            android:id="@+id/txtNewUserNameEdit"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_text_border"
+            android:enabled="false"
+            android:hint="UserName"
+            android:singleLine="true"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/txtFirstNameEdit"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="FirstName"
+            android:singleLine="true"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtNewUserNameEdit" />
+
+        <EditText
+            android:id="@+id/txtLastNameEdit"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="LastName"
+            android:singleLine="true"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtFirstNameEdit" />
+
+        <EditText
+            android:id="@+id/txtEmailEdit"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Email"
+            android:singleLine="true"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtLastNameEdit" />
+
+        <EditText
+            android:id="@+id/txtCityEdit"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="City"
+            android:singleLine="true"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtAddressEdit" />
+
+        <EditText
+            android:id="@+id/txtPostalCodeEdit"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="PostalCode"
+            android:singleLine="true"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtCityEdit" />
+
+        <EditText
+            android:id="@+id/txtPhoneEdit"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Phone"
+            android:singleLine="true"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtPostalCodeEdit" />
+
+        <EditText
+            android:id="@+id/txtNewPasswordEdit"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Password"
+            android:password="true"
+            android:singleLine="true"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtPhoneEdit" />
+
+        <EditText
+            android:id="@+id/txtAddressEdit"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/edit_text_border"
+            android:hint="Address"
+            android:singleLine="true"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtEmailEdit" />
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="@color/blue"
+            android:text="Update"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtNewPasswordEdit" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -85,27 +85,27 @@ class CreateCustomerActivity : AppCompatActivity() {
             }
 
             else {
-                customerViewModel.getCustomer(context, txtUserName.text.toString().trim())!!.
-                observe(this, Observer
+                customerViewModel.getCustomer(context, txtUserName.text.toString().trim())!!.observe(this, Observer
                 {
-                    if (it == null) {
+                    if (it != null) {
+
+                        Toast.makeText( context,"User Name Already Exist!!",Toast.LENGTH_LONG).show()
+                    }
+                    else {
+
                         customerViewModel.insertCustomer(context, txtUserName.text.toString().trim(),strNewPassword.text.toString().trim(),strFirstName.text.toString().trim(),
                             strLastName.text.toString().trim(),strAddress.text.toString().trim(),strCity.text.toString().trim(),strPostalCode.text.toString().trim(),strPhone.text.toString().trim(),
                             strEmail.text.toString().trim())
 
-                        var intent = Intent(this, EditCustomerActivity::class.java)
+                        var intent = Intent(this, MainMenuActivity::class.java)
                         val sharedPreferences : SharedPreferences = this.getSharedPreferences("UserProfile", 0)
                         val editor : SharedPreferences.Editor = sharedPreferences.edit()
                         editor.putString("UserName",  txtUserName.text.toString().trim())
                         editor.putString("FirstName",  strFirstName.text.toString().trim())
                         editor.putString("LastName",  strLastName.text.toString().trim())
+                        editor?.putString("Email",   strEmail.text.toString().trim())
                         editor.commit()
                         startActivity(intent)
-
-                    }
-                    else {
-                        Toast.makeText( context,"User Name Already Exist!!",Toast.LENGTH_LONG).show()
-
                     }
                 })
 

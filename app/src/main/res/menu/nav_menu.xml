@@ -19,7 +19,7 @@
 
 <menu>
     <item android:id="@+id/nav_editCustomer"
-        android:title="Account"
+        android:title="Edit"
         android:icon="@drawable/ic_baseline_edit_24">
 
     </item>

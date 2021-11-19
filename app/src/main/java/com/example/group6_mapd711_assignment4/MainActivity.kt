@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                     editor.putString("UserName",  it.userName)
                     editor.putString("FirstName",   it.firstName)
                     editor.putString("LastName",   it.lastName)
+                    editor.putString("Email",   it.email)
                     editor.commit()
                     startActivity(intent)
                 }
