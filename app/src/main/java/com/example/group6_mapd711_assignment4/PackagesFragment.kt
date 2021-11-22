@@ -1,5 +1,6 @@
 package com.example.group6_mapd711_assignment4
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
@@ -16,13 +18,15 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
 
     lateinit var cruiseViewModel: CruiseViewModel
     var arrayList: ArrayList<CruiseModel> = ArrayList()
-
     var adapter: ListViewAdapter? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
 
         }
+
+
     }
 
     override fun onCreateView(
@@ -62,17 +66,36 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
                 }
 
                 var adapter = ListViewAdapter(requireContext(),arrayList)
+
                 listView.adapter = adapter
                 listView.onItemClickListener=this
             })
+
+        /*
+        btnNext.setOnClickListener{
+
+            Toast.makeText( requireContext(),"Please Select One Cruise Type", Toast.LENGTH_LONG).show()
+
+        }*/
+
     }
 
     override fun onItemClick(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-        var item: String = parent?.getItemAtPosition(position) as String
-        val sharedPreferences : SharedPreferences? = this.activity?.getSharedPreferences("BookingProfile", 0)
-        val editor : SharedPreferences.Editor? = sharedPreferences?.edit()
-        editor?.putString("CruiseCode", item)
-        editor?.commit()
+
+        //val adapter = ArrayAdapter (this, R.layout.custom_list_view, arrayList)
+        //val listView : ListView = findViewById(R.id.listViewCruisesSearch)
+
+
+        //val sharedPreferences : SharedPreferences? = this.activity?.getSharedPreferences("BookingProfile", 0)
+        //val editor : SharedPreferences.Editor? = sharedPreferences?.edit()
+        //editor?.putString("CruiseCode", item)
+        //editor?.commit()
+        Toast.makeText( requireContext(),"yes", Toast.LENGTH_LONG).show()
+
+
+        //val intent = Intent(this, ThirdActivity::class.java)
+        //startActivity(intent)
+
     }
 
 }
