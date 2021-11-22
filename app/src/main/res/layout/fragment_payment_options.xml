@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".PaymentOptionsFragment">
+
+    <RadioGroup
+        android:id="@+id/radioGroupTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="150dp"
+        app:layout_constraintBottom_toTopOf="@+id/goPayment"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButtonCash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:text="CASH"
+            android:textColor="@color/purple_500"
+            app:layout_constraintBottom_toBottomOf="@+id/radioGroupTwo" />
+
+        <RadioButton
+            android:id="@+id/radioButtonDebit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:text="DEBIT CARD"
+            android:textColor="@color/purple_500"
+            app:layout_constraintBottom_toBottomOf="@+id/radioGroupTwo" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:text="CREDIT CARD"
+            android:textColor="@color/purple_500"
+            app:layout_constraintBottom_toBottomOf="@+id/radioGroupTwo" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/goPayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="300dp"
+        android:onClick="clickForPay"
+        android:text="Pay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</FrameLayout>
+

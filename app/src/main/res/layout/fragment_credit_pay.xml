@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CreditPayFragment">
+
+    <TextView
+        android:id="@+id/cardNumber2"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:minHeight="48dp"
+        android:text="Card Number"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/cardNumber"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/cardNumber"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="60dp"
+        android:minHeight="48dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/expiryDate2"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:minHeight="48dp"
+        android:text="Expiry Date"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/expiryDate"
+        app:layout_constraintTop_toBottomOf="@+id/cVV2" />
+
+    <EditText
+        android:id="@+id/expiryDate"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="30dp"
+        android:minHeight="48dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cVV" />
+
+    <TextView
+        android:id="@+id/cVV2"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:minHeight="48dp"
+        android:text="CVV"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/cVV"
+        app:layout_constraintTop_toBottomOf="@+id/cardNumber2" />
+
+    <EditText
+        android:id="@+id/cVV"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="30dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardNumber" />
+
+
+
+
+
+    <Button
+        android:id="@+id/buttonCreditPayNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="75dp"
+        android:onClick="clickToEnterInfo"
+        android:text="Pay Now"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</FrameLayout>
