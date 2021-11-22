@@ -17,8 +17,8 @@ data class CruiseModel(
     var price: String,
     @ColumnInfo(name = "duration")
     var duration: String,
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @ColumnInfo(name = "cruiseCode")
-    var cruiseCode: Int? = null
+    val cruiseCode: Int,
 
 )

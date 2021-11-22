@@ -21,13 +21,14 @@ class CruiseRepository {
         fun insertCruise(
             context: Context, cruiseName: String, visitingPlaces: String,
             price: String,
-            duration: String
+            duration: String,
+            cruiseCode : Int
         ) {
             travelDatabase = initializeDB(context)
 
             CoroutineScope(Dispatchers.IO).launch {
-                val cruiseDetails= CruiseModel( cruiseName,visitingPlaces,price,duration
-
+                val cruiseDetails= CruiseModel( cruiseName,visitingPlaces,price,duration,
+                    cruiseCode
                 )
                 travelDatabase!!.cruiseDao().insertCruise(cruiseDetails)
             }

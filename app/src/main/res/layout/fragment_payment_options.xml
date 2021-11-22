@@ -5,13 +5,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".PaymentOptionsFragment">
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="410dp"
+        android:layout_height="700dp">
     <RadioGroup
         android:id="@+id/radioGroupTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="150dp"
-        app:layout_constraintBottom_toTopOf="@+id/goPayment"
+        app:layout_constraintBottom_toTopOf="@+id/btnGoPayment"
         app:layout_constraintEnd_toEndOf="parent">
 
         <RadioButton
@@ -20,7 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
             android:text="CASH"
-            android:textColor="@color/purple_500"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/radioGroupTwo" />
 
         <RadioButton
@@ -29,7 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
             android:text="DEBIT CARD"
-            android:textColor="@color/purple_500"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/radioGroupTwo" />
 
         <RadioButton
@@ -38,20 +42,24 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="0dp"
             android:text="CREDIT CARD"
-            android:textColor="@color/purple_500"
+            android:textColor="@color/black"
+
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/radioGroupTwo" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/goPayment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="300dp"
-        android:onClick="clickForPay"
-        android:text="Pay"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <Button
+            android:id="@+id/btnGoPayment"
+            android:layout_width="122dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="150dp"
+            android:layout_marginBottom="300dp"
+            android:backgroundTint="@color/blue"
+            android:onClick="clickForPay"
+            android:text="Pay"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
 

@@ -33,8 +33,6 @@ class MainMenuActivity : AppCompatActivity() {
             var navUserName = headerView.findViewById<TextView>(R.id.user_name)
             var navEmail = headerView.findViewById<TextView>(R.id.user_email)
 
-
-
             navUserName.text ="Welcome " + shared?.getString("FirstName", "") + " "+ shared?.getString("LastName", "")
             navEmail.text = shared?.getString("Email", "")
 
@@ -52,7 +50,6 @@ class MainMenuActivity : AppCompatActivity() {
                     R.id.nav_Logout -> {
                         val preferences = getSharedPreferences("UserProfile", 0)
                         preferences.edit().remove("UserName").commit()
-
                         startActivity(intent)
                     }
                     R.id.nav_editCustomer -> {
@@ -91,6 +88,27 @@ class MainMenuActivity : AppCompatActivity() {
     {
      loadFragment(PackagesFragment())
 
+    }
+    fun goToPackageDetailFragment()
+    {
+        loadFragment(PackageDetailFragment())
+
+    }
+    fun goToConfirmFragment()
+    {
+        loadFragment(ConfirmInputInformationFragment())
+    }
+    fun goToPaymentTypeFragment()
+    {
+        loadFragment(PaymentOptionsFragment())
+    }
+    fun goToPaymentFragment()
+    {
+        loadFragment(CreditPayFragment())
+    }
+    fun goToFinalBookingFragment()
+    {
+        loadFragment(FinalBookingFragment())
     }
     private fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
