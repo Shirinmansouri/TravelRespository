@@ -12,10 +12,14 @@
         <entry key="app/src/main/res/layout/activity_third.xml" value="0.1381340579710145" />
         <entry key="app/src/main/res/layout/check.html" value="0.1381340579710145" />
         <entry key="app/src/main/res/layout/custom_list_view.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_confirm_input_information.xml" value="0.1381340579710145" />
+        <entry key="app/src/main/res/layout/fragment_credit_pay.xml" value="0.1381340579710145" />
         <entry key="app/src/main/res/layout/fragment_cruise_type.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_debit_pay.xml" value="0.1381340579710145" />
         <entry key="app/src/main/res/layout/fragment_edit_customer.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/fragment_packages.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/fragment_payment_options.xml" value="0.1381340579710145" />
         <entry key="app/src/main/res/layout/just_check.xml" value="0.1381340579710145" />
         <entry key="app/src/main/res/layout/just_check_honey.xml" value="0.1381340579710145" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.1381340579710145" />
