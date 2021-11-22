@@ -18,5 +18,8 @@ interface BookingDao {
 
     //defining a query method using @Query Annotation
     @Query("SELECT * FROM booking WHERE customerId =:customerId")
-    fun getBookingsByCustomer( customerId: Int?) : LiveData<BookingModel>
+    fun getBookingsByCustomer( customerId: Int?) : LiveData<List<BookingModel>>
+
+    @Query("SELECT * FROM booking")
+    fun getBookingsWithNothing() : LiveData<List<BookingModel>>
 }

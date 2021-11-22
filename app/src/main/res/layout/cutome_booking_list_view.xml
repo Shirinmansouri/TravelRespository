@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/indexNumber"
+        android:layout_width="10dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="5sp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_alignBaseline="@+id/bookingId"
+        />
+    <TextView
+        android:id="@+id/bookingId"
+        android:layout_width="40dp"
+        android:layout_height="70dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20sp"
+        android:layout_marginBottom="2sp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_toRightOf="@+id/indexNumber"
+        />
+    <TextView
+        android:id="@+id/amountPaid"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20sp"
+        android:layout_marginBottom="2sp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_toRightOf="@+id/bookingId"
+        />
+    <TextView
+        android:id="@+id/startDate"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20sp"
+        android:layout_marginBottom="2sp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_toRightOf="@+id/amountPaid"
+        />
+
+
+
+</RelativeLayout>

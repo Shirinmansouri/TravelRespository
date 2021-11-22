@@ -16,6 +16,7 @@ class BookingRepository {
     companion object {
         var travelDatabase: TravelDatabase? = null
         var bookingModel: LiveData<BookingModel>? = null
+        var lstBookingModel: LiveData<List<BookingModel>>? = null
 
         //initialize database
         fun initializeDB(context: Context): TravelDatabase {
@@ -54,11 +55,18 @@ class BookingRepository {
             return bookingModel
         }
         //Initialize getBookingsByCustomer()
-        fun getBookingsByCustomer(context: Context,customerId: Int?): LiveData<BookingModel>? {
+        fun getBookingsByCustomer(context: Context,customerId: Int?): LiveData<List<BookingModel>>? {
 
             travelDatabase = initializeDB(context)
-            bookingModel = travelDatabase!!.bookingDao().getBookingsByCustomer(customerId)
-            return bookingModel
+            lstBookingModel = travelDatabase!!.bookingDao().getBookingsByCustomer(customerId)
+            return lstBookingModel
+        }
+
+        fun getBookingsWithNothing(context: Context): LiveData<List<BookingModel>>? {
+
+            travelDatabase = initializeDB(context)
+            lstBookingModel = travelDatabase!!.bookingDao().getBookingsWithNothing()
+            return lstBookingModel
         }
         fun UpdateBooking(context: Context ,  numberOfAdults: String, numberOfKids: String,
                            numberOfSeniors: String,
