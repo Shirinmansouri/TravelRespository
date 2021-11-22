@@ -48,5 +48,12 @@ class CruiseRepository {
             lstCruiseModel = travelDatabase!!.cruiseDao().getAllCruises()
             return lstCruiseModel
         }
+        //Initialize getCruisesByName()
+        fun getCruisesByName(context: Context, cruiseName: String?): LiveData<List<CruiseModel>>? {
+
+            travelDatabase = initializeDB(context)
+            lstCruiseModel = travelDatabase!!.cruiseDao().getCruisesByName(cruiseName)
+            return lstCruiseModel
+        }
     }
 }

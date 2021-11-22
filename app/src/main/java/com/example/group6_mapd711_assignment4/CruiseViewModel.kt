@@ -26,4 +26,9 @@ class CruiseViewModel : ViewModel() {
         lstCruiseModel = CruiseRepository.getAllCruises(context)
         return lstCruiseModel
     }
+
+    fun getCruisesByName(context: Context, cruiseName: String?) : LiveData<List<CruiseModel>>? {
+        lstCruiseModel = CruiseRepository.getCruisesByName(context, cruiseName)
+        return lstCruiseModel
+    }
 }

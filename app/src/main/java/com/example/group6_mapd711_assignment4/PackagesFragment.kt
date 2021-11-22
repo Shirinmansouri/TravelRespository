@@ -20,6 +20,7 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
     var arrayList: ArrayList<CruiseModel> = ArrayList()
     var adapter: ListViewAdapter? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -52,7 +53,7 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
        // cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3")
        // cruiseViewModel.insertCruise(requireContext(),"Caribbean","Shirin,Ali","$200","1")
 
-        cruiseViewModel.getAllCruises(requireContext())!!.observe(viewLifecycleOwner
+        cruiseViewModel.getCruisesByName(requireContext(), cruiseType)!!.observe(viewLifecycleOwner
             , Observer { it ->
 
                 var listView = view.findViewById(R.id.listViewCruisesSearch) as ListView

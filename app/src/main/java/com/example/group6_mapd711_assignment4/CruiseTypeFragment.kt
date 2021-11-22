@@ -27,6 +27,7 @@ class CruiseTypeFragment : Fragment(),AdapterView.OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         val btnNext = view.findViewById(R.id.btnNext1) as Button
+        val chosenDate = view.findViewById<DatePicker>(R.id.datePicker1)
         var listView = view.findViewById(R.id.listViewCustomerSearch) as ListView
         var itemList : ArrayList<String> = ArrayList()
         itemList.add("Bahamas Cruise")
@@ -45,8 +46,12 @@ class CruiseTypeFragment : Fragment(),AdapterView.OnItemClickListener {
           {
               Toast.makeText( requireContext(),"Please Select One Cruise Type", Toast.LENGTH_LONG).show()
           }
+            else if (chosenDate == null){
+              Toast.makeText( requireContext(),"Please Select a date!", Toast.LENGTH_LONG).show()
+          }
             else
           {
+
             (activity as MainMenuActivity).goToPackages()
           }
         }

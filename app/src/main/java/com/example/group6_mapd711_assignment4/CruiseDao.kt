@@ -17,7 +17,10 @@ interface CruiseDao {
     fun getCruises(cruiseCode: Int?) : LiveData<CruiseModel>
 
     //defining a query method using @Query Annotation
-    @Query("SELECT * FROM cruise  ")
+    @Query("SELECT * FROM cruise")
     fun getAllCruises() : LiveData<List<CruiseModel>>
+
+    @Query("SELECT * FROM cruise WHERE cruiseCode LIKE '%'  || :cruiseName || '%'")
+    fun getCruisesByName(cruiseName : String?) : LiveData<List<CruiseModel>>
 
 }
