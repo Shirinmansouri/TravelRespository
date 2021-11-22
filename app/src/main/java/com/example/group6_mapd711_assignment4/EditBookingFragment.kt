@@ -65,70 +65,28 @@ class EditBookingFragment : Fragment() {
             })
         btnEditBooking.setOnClickListener{
             //validation for the empty values
-            if (txtUserName.text.toString().isEmpty()) {
-                txtUserName.error = "Enter User Name"
-                Toast.makeText( context,"User Name should not be empty", Toast.LENGTH_LONG).show()
+            if (txtNumberOfAdults.text.toString().isEmpty()) {
+                txtNumberOfAdults.error = "Enter Number of Adults"
+                Toast.makeText( context,"Number of Adults should not be empty", Toast.LENGTH_LONG).show()
             }
-            else if (strFirstName.text.toString().trim().isEmpty()) {
-                strFirstName.error = "Enter First Name"
-                Toast.makeText( context,"First Name should not be empty", Toast.LENGTH_LONG).show()
+            else if (txtNewNumberOfKids.text.toString().trim().isEmpty()) {
+                txtNewNumberOfKids.error = "Enter Number of Kids"
+                Toast.makeText( context,"Number of Kids should not be empty", Toast.LENGTH_LONG).show()
             }
-            else if (strLastName.text.toString().trim().isEmpty()) {
-                strLastName.error = "Enter Last Name"
-                Toast.makeText( context,"Last Name should not be empty", Toast.LENGTH_LONG).show()
+            else if (txtNewNumberOfSeniors.text.toString().trim().isEmpty()) {
+                txtNewNumberOfSeniors.error = "Enter Number of Seniors"
+                Toast.makeText( context,"Number of Seniors should not be empty", Toast.LENGTH_LONG).show()
             }
-            else if (strEmail.text.toString().trim().isEmpty()) {
-                strEmail.error = "Enter Email"
-                Toast.makeText( context,"Email should not be empty", Toast.LENGTH_LONG).show()
-            }
-            else if (strAddress.text.toString().trim().isEmpty()) {
-                strAddress.error = "Enter Address"
-                Toast.makeText( context,"Adress should not be empty", Toast.LENGTH_LONG).show()
-            }
-            else if (strCity.text.toString().trim().isEmpty()) {
-                strCity.error = "Enter City"
-                Toast.makeText( context,"City should not be empty", Toast.LENGTH_LONG).show()
-            }
-            else  if (strPhone.text.toString().trim().isEmpty()) {
-                strPhone.error = "Enter Phone"
-                Toast.makeText( context,"Phone should not be empty", Toast.LENGTH_LONG).show()
-            }
-            else if (strPostalCode.text.toString().trim().isEmpty()) {
-                strPostalCode.error = "Enter PostalCode"
-                Toast.makeText( context,"PostalCode should not be empty", Toast.LENGTH_LONG).show()
-            }
-            else if (strNewPassword.text.toString().trim().isEmpty()) {
-                strNewPassword.error = "Enter Password"
-                Toast.makeText( context,"Password should not be empty", Toast.LENGTH_LONG).show()
-            }
-            else if (strNewPassword.text.toString().trim().length<6)
-            {
-                strNewPassword.error = "Password Length"
-                Toast.makeText( context,"Password Length should not be more than 6 letters",
-                    Toast.LENGTH_LONG).show()
+            else if (txtNewDate.text.toString().trim().isEmpty()) {
+                txtNewDate.error = "Enter a new date"
+                Toast.makeText( context,"Date should not be empty", Toast.LENGTH_LONG).show()
             }
 
             else {
-                customerViewModel.getCustomer(requireContext(), txtUserName.text.toString().trim())!!.
-                observe(viewLifecycleOwner, Observer
-                {
+                    bookingViewModel.updateBooking(requireContext(), txtNumberOfAdults.text.toString().trim(),txtNewNumberOfKids.text.toString().trim(),txtNewNumberOfSeniors.text.toString().trim(),
+                        txtAmountPaid.text.toString().trim(),txtNewDate.text.toString().trim(),txtCustomerId.text.toString().trim().toInt(),txtCruiseCode.text.toString().trim().toInt(),txtBookingCode.text.toString().trim().toInt())
 
-                    customerViewModel.updateCustomer(requireContext(), txtUserName.text.toString().trim(),strNewPassword.text.toString().trim(),strFirstName.text.toString().trim(),
-                        strLastName.text.toString().trim(),strAddress.text.toString().trim(),strCity.text.toString().trim(),strPostalCode.text.toString().trim(),strPhone.text.toString().trim(),
-                        strEmail.text.toString().trim(),it.customerId)
-
-
-                    val sharedPreferences : SharedPreferences? = this.activity?.getSharedPreferences("UserProfile", 0)
-                    val editor : SharedPreferences.Editor? = sharedPreferences?.edit()
-                    editor?.putString("FirstName",  strFirstName.text.toString().trim())
-                    editor?.putString("LastName",  strLastName.text.toString().trim())
-                    editor?.putString("Email",   strEmail.text.toString().trim())
-                    editor?.commit()
                     Toast.makeText( context,"Information Successfully Updated", Toast.LENGTH_LONG).show()
-
-
-
-                })
 
             }
         }

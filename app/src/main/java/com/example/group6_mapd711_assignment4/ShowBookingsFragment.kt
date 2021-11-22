@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import java.time.LocalDate
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ShowBookingsFragment : Fragment(), AdapterView.OnItemClickListener {
 
@@ -90,14 +92,22 @@ class ShowBookingsFragment : Fragment(), AdapterView.OnItemClickListener {
 
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onItemClick(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
 
         val bookingID = p1!!.findViewById<TextView>(R.id.bookingId).text.toString()
         val amountPaid = p1!!.findViewById<TextView>(R.id.amountPaid).text.toString()
         val startDate = p1!!.findViewById<TextView>(R.id.startDate).text.toString()
 
+        val parsedDate: List<String> = startDate.split("-")
+        var day = parsedDate[2].toInt()
+        var month = parsedDate[1].toInt()
+        var year = parsedDate[0].toInt()
+        //var date : Date = Date(year-1900, month-1, day)
 
-        if () {
+        val date = LocalDate.of(year,month-1,day)
+        val checkDate = LocalDate.of(date.year,date.monthValue-1,date.dayOfMonth-7)
+        if (checkDate > LocalDate.now()) {
 
             val sharedPreferences: SharedPreferences? =
                 this.activity?.getSharedPreferences("BookingProfile", 0)
@@ -109,7 +119,8 @@ class ShowBookingsFragment : Fragment(), AdapterView.OnItemClickListener {
             editor?.commit()
             (activity as MainMenuActivity).goToEditBookings()
         }else{
-            Toast.makeText( context,"Too late for editting!", Toast.LENGTH_LONG).show()
+            var toShowToast = checkDate.toString()
+            Toast.makeText( context,toShowToast, Toast.LENGTH_LONG).show()
         }
 
     }
