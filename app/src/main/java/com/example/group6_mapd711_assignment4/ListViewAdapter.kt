@@ -14,6 +14,7 @@ class ListViewAdapter(private val context: Context, private val arrayList: java.
     private lateinit var price: TextView
     private lateinit var duration: TextView
     private lateinit var visitingPlace: TextView
+    private lateinit var choose : TextView
     override fun getCount(): Int {
         return arrayList.size
     }
@@ -31,12 +32,14 @@ class ListViewAdapter(private val context: Context, private val arrayList: java.
         price = convertView.findViewById(R.id.price)
         duration = convertView.findViewById(R.id.duration)
         visitingPlace = convertView.findViewById(R.id.visitingPlace)
+        choose = convertView.findViewById(R.id.choosePackage)
 
         CruiseCode.setText(arrayList.get(position).cruiseCode.toString())
         CruiseName.setText(arrayList.get(position).cruiseName)
         price.setText(arrayList.get(position).price)
         duration.setText(arrayList.get(position).duration)
         visitingPlace.setText(arrayList.get(position).visitingPlaces)
+        choose.setText("choose")
 
 
 
