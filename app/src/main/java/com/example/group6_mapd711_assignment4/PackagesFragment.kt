@@ -45,15 +45,15 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
         val shared = this.activity?.getSharedPreferences("BookingProfile", AppCompatActivity.MODE_PRIVATE)
 
         val cruiseType = shared?.getString("CruiseType", "")
-        val btnNext = view.findViewById(R.id.btnNext2) as Button
 
-       cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3 nights")
+
+       //cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3 nights")
         //cruiseViewModel.insertCruise(requireContext(),"Caribbean","Zohreh,Ali","$500","4")
         //cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javid,Ali","$800","8")
        // cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3")
        // cruiseViewModel.insertCruise(requireContext(),"Caribbean","Shirin,Ali","$200","1")
 
-        cruiseViewModel.getCruisesByName(requireContext(), cruiseType)!!.observe(viewLifecycleOwner
+        cruiseViewModel.getCruisesByName(requireContext(),cruiseType.toString())!!.observe(viewLifecycleOwner
             , Observer { it ->
 
                 var listView = view.findViewById(R.id.listViewCruisesSearch) as ListView
@@ -63,7 +63,6 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
                 for (cruise in it)
                 {
                     arrayList.add(cruise)
-
                 }
 
                 var adapter = ListViewAdapter(requireContext(),arrayList)
@@ -83,19 +82,22 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
 
     override fun onItemClick(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
 
-        //val adapter = ArrayAdapter (this, R.layout.custom_list_view, arrayList)
-        //val listView : ListView = findViewById(R.id.listViewCruisesSearch)
 
+        val cruiseName = p1!!.findViewById<TextView>(R.id.CruiseName).text.toString()
+        val CruiseCode = p1!!.findViewById<TextView>(R.id.CruiseCode).text.toString()
+        val duration = p1!!.findViewById<TextView>(R.id.duration).text.toString()
+        val price = p1!!.findViewById<TextView>(R.id.price).text.toString()
+        val visitingPlaces = p1!!.findViewById<TextView>(R.id.visitingPlace).text.toString()
+        val sharedPreferences : SharedPreferences? = this.activity?.getSharedPreferences("BookingProfile", 0)
+        val editor : SharedPreferences.Editor? = sharedPreferences?.edit()
+        editor?.putString("cruiseName", cruiseName)
+        editor?.putString("CruiseCode",CruiseCode)
+        editor?.putString("duration",duration)
+        editor?.putString("price",price)
+        editor?.putString("visitingPlaces",visitingPlaces)
+        editor?.commit()
+        (activity as MainMenuActivity).goToPackageDetailFragment()
 
-        //val sharedPreferences : SharedPreferences? = this.activity?.getSharedPreferences("BookingProfile", 0)
-        //val editor : SharedPreferences.Editor? = sharedPreferences?.edit()
-        //editor?.putString("CruiseCode", item)
-        //editor?.commit()
-        Toast.makeText( requireContext(),"yes", Toast.LENGTH_LONG).show()
-
-
-        //val intent = Intent(this, ThirdActivity::class.java)
-        //startActivity(intent)
 
     }
 

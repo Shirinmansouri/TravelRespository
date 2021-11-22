@@ -20,7 +20,7 @@ interface CruiseDao {
     @Query("SELECT * FROM cruise")
     fun getAllCruises() : LiveData<List<CruiseModel>>
 
-    @Query("SELECT * FROM cruise WHERE cruiseCode LIKE '%'  || :cruiseName || '%'")
+    @Query("SELECT * FROM cruise WHERE cruiseName = :cruiseName ")
     fun getCruisesByName(cruiseName : String?) : LiveData<List<CruiseModel>>
 
 }

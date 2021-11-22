@@ -52,7 +52,7 @@ class ConfirmInputInformationFragment : Fragment() {
 
         val dataAdults = shared?.getString("numberOfAdults", "")
         val dataKids = shared?.getString("numberOfKids", "")
-        val dataElderly = shared?.getString("Over60", "")
+        val dataSenior= shared?.getString("numberOfSenior","")
         var finalPrice1 = (price?.let { dataAdults?.toFloat()?.times(it.toFloat()) })
         var finalPrice2 = price?.toFloat()?.let {
             dataKids?.toFloat()
@@ -67,7 +67,7 @@ class ConfirmInputInformationFragment : Fragment() {
                 "\n\nNumber of nights: " + duration +
                 "\n" + "\nNumber of Adults: " + dataAdults +
                 "\n" + "\nNumber of Kids: " + dataKids +
-                "\n" + "\nAny passenger over 60: " + dataElderly +
+                "\n" + "\nNumber of Seniors: " + dataSenior +
                 "\n" + "\nAmount to pay (tax included):$ " + finalPriceWithTax
 
         val editor : SharedPreferences.Editor = shared.edit()

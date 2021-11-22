@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                     var intent = Intent(this, MainMenuActivity::class.java)
                     val sharedPreferences : SharedPreferences = this.getSharedPreferences("UserProfile", 0)
                     val editor : SharedPreferences.Editor = sharedPreferences.edit()
+                    editor.putString("customerId" ,it.customerId.toString())
                     editor.putString("UserName",  it.userName)
                     editor.putString("FirstName",   it.firstName)
                     editor.putString("LastName",   it.lastName)

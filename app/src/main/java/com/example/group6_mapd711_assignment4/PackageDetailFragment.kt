@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.RadioButton
 import android.widget.Spinner
 import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_package_detail.*
 
 
 class PackageDetailFragment : Fragment() {
@@ -39,20 +40,14 @@ class PackageDetailFragment : Fragment() {
             val spinnKid = view.findViewById<Spinner>(R.id.spinnerKids)
             val numberOfAdults = spinnAdu.selectedItem.toString()
             val numberOfKids = spinnKid.selectedItem.toString()
-            val radioYes = view.findViewById<RadioButton>(R.id.radioButtonYes)
-            val radioNo = view.findViewById<RadioButton>(R.id.radioButtonNo)
+            val numberOfSenior = spSenior.selectedItem.toString()
 
 
             val sharedPreferences : SharedPreferences? = this.activity?.getSharedPreferences("BookingProfile", 0)
             val editor : SharedPreferences.Editor = sharedPreferences!!.edit()
             editor.putString("numberOfAdults", numberOfAdults)
             editor.putString("numberOfKids", numberOfKids)
-            if(radioYes.isChecked) {
-                editor.putString("Over60", "YES")
-            }
-            else if(radioNo.isChecked){
-                editor.putString("Over60", "NO")
-            }
+            editor.putString("numberOfSenior",numberOfSenior)
             editor.commit()
             (activity as MainMenuActivity).goToConfirmFragment()
             }
