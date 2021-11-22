@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
@@ -40,8 +41,6 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
         val shared = this.activity?.getSharedPreferences("BookingProfile", AppCompatActivity.MODE_PRIVATE)
 
         val cruiseType = shared?.getString("CruiseType", "")
-        val btnNext = view.findViewById(R.id.btnNext2) as Button
-
        cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3 nights")
         //cruiseViewModel.insertCruise(requireContext(),"Caribbean","Zohreh,Ali","$500","4")
         //cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javid,Ali","$800","8")
@@ -68,11 +67,13 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
     }
 
     override fun onItemClick(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-        var item: String = parent?.getItemAtPosition(position) as String
+
+        var cruiseCode : String = p1!!.findViewById<TextView>(R.id.CruiseCode).text as String
         val sharedPreferences : SharedPreferences? = this.activity?.getSharedPreferences("BookingProfile", 0)
         val editor : SharedPreferences.Editor? = sharedPreferences?.edit()
-        editor?.putString("CruiseCode", item)
-        editor?.commit()
+         editor?.putString("CruiseCode", cruiseCode)
+         editor?.commit()
+
     }
 
 }
