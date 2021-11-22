@@ -105,8 +105,8 @@ class ShowBookingsFragment : Fragment(), AdapterView.OnItemClickListener {
         var year = parsedDate[0].toInt()
         //var date : Date = Date(year-1900, month-1, day)
 
-        val date = LocalDate.of(year,month-1,day)
-        val checkDate = LocalDate.of(date.year,date.monthValue-1,date.dayOfMonth-7)
+        val date = LocalDate.of(year,month,day)
+        val checkDate = LocalDate.of(date.year,date.monthValue,date.dayOfMonth-7)
         if (checkDate > LocalDate.now()) {
 
             val sharedPreferences: SharedPreferences? =
@@ -120,7 +120,7 @@ class ShowBookingsFragment : Fragment(), AdapterView.OnItemClickListener {
             (activity as MainMenuActivity).goToEditBookings()
         }else{
             var toShowToast = checkDate.toString()
-            Toast.makeText( context,toShowToast, Toast.LENGTH_LONG).show()
+            Toast.makeText( context,"After "+toShowToast+", it is too late to edit!", Toast.LENGTH_LONG).show()
         }
 
     }
