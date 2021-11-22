@@ -61,11 +61,10 @@ class MainMenuActivity : AppCompatActivity() {
                         loadFragment(CruiseTypeFragment())
                         draweLayout.closeDrawers()
                     }
-                    R.id.nav_bookingList -> Toast.makeText(
-                        applicationContext,
-                        "bookingList",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    R.id.nav_bookingList -> {
+                        loadFragment(ShowBookingsFragment())
+                        draweLayout.closeDrawers()
+                    }
 
                 }
                 true
@@ -80,9 +79,9 @@ class MainMenuActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-    fun backFromFragment()
+    fun goToEditBookings()
     {
-
+        loadFragment(EditBookingFragment())
     }
     fun goToPackages()
     {
