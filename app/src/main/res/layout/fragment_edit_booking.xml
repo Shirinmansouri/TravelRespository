@@ -12,7 +12,7 @@
             android:layout_height="700dp">
 
             <EditText
-                android:id="@+id/txtNewUserNameEdit"
+                android:id="@+id/txtNewNumberOfAdults"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="30dp"
@@ -20,7 +20,7 @@
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/edit_text_border"
                 android:enabled="false"
-                android:hint="UserName"
+                android:hint="Number of Adults"
                 android:singleLine="true"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -28,128 +28,118 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/txtFirstNameEdit"
+                android:id="@+id/txtNewNumberOfKids"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/edit_text_border"
-                android:hint="FirstName"
+                android:hint="Number of Kids"
                 android:singleLine="true"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/txtNewUserNameEdit" />
+                app:layout_constraintTop_toTopOf="@id/txtNewNumberOfAdults" />
 
             <EditText
-                android:id="@+id/txtLastNameEdit"
+                android:id="@+id/txtNewNumberOfSeniors"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/edit_text_border"
-                android:hint="LastName"
+                android:hint="Number of Seniors"
                 android:singleLine="true"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/txtFirstNameEdit" />
+                app:layout_constraintTop_toTopOf="@id/txtNewNumberOfKids" />
 
             <EditText
-                android:id="@+id/txtEmailEdit"
+                android:id="@+id/txtNewDate"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/edit_text_border"
-                android:hint="Email"
+                android:hint="Date"
                 android:singleLine="true"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/txtLastNameEdit" />
+                app:layout_constraintTop_toTopOf="@id/txtNewNumberOfSeniors" />
 
             <EditText
-                android:id="@+id/txtCityEdit"
+                android:id="@+id/txtAmountPaid"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/edit_text_border"
-                android:hint="City"
+                android:enabled="false"
+
                 android:singleLine="true"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/txtAddressEdit" />
+                app:layout_constraintTop_toTopOf="@id/txtNewDate" />
 
             <EditText
-                android:id="@+id/txtPostalCodeEdit"
+                android:id="@+id/txtCustomerId"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/edit_text_border"
-                android:hint="PostalCode"
+                android:enabled="false"
+
                 android:singleLine="true"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/txtCityEdit" />
+                app:layout_constraintTop_toTopOf="@id/txtAmountPaid" />
 
             <EditText
-                android:id="@+id/txtPhoneEdit"
+                android:id="@+id/txtCruiseCode"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/edit_text_border"
-                android:hint="Phone"
+                android:enabled="false"
+
                 android:singleLine="true"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/txtPostalCodeEdit" />
+                app:layout_constraintTop_toTopOf="@id/txtCustomerId" />
 
             <EditText
-                android:id="@+id/txtNewPasswordEdit"
+                android:id="@+id/txtBookingCode"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/edit_text_border"
-                android:hint="Password"
-                android:password="true"
-                android:singleLine="true"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/txtPhoneEdit" />
+                android:enabled="false"
 
-            <EditText
-                android:id="@+id/txtAddressEdit"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/edit_text_border"
-                android:hint="Address"
                 android:singleLine="true"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/txtEmailEdit" />
+                app:layout_constraintTop_toTopOf="@id/txtCruiseCode" />
+
+
 
             <Button
-                android:id="@+id/btnEdit"
+                android:id="@+id/btnEditBooking"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="30dp"
@@ -160,7 +150,7 @@
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtNewPasswordEdit" />
+                app:layout_constraintTop_toBottomOf="@id/txtBookingCode" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

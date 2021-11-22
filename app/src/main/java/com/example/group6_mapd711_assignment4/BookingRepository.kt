@@ -48,10 +48,10 @@ class BookingRepository {
         }
 
         //Initialize getCruise()
-        fun getBookings(context: Context, cruiseCode: Int?, customerId: Int?): LiveData<BookingModel>? {
+        fun getBookings(context: Context, bookingId: Int?): LiveData<BookingModel>? {
 
             travelDatabase = initializeDB(context)
-            bookingModel = travelDatabase!!.bookingDao().getBookings(cruiseCode,customerId)
+            bookingModel = travelDatabase!!.bookingDao().getBookings(bookingId)
             return bookingModel
         }
         //Initialize getBookingsByCustomer()

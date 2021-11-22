@@ -97,14 +97,20 @@ class ShowBookingsFragment : Fragment(), AdapterView.OnItemClickListener {
         val startDate = p1!!.findViewById<TextView>(R.id.startDate).text.toString()
 
 
-        val sharedPreferences : SharedPreferences? = this.activity?.getSharedPreferences("BookingProfile", 0)
-        val editor : SharedPreferences.Editor? = sharedPreferences?.edit()
-        editor?.putString("bookingID", bookingID)
-        editor?.putString("amountPaid",amountPaid)
-        editor?.putString("startDate",startDate)
+        if () {
 
-        editor?.commit()
-        (activity as MainMenuActivity).goToEditBookings()
+            val sharedPreferences: SharedPreferences? =
+                this.activity?.getSharedPreferences("BookingProfile", 0)
+            val editor: SharedPreferences.Editor? = sharedPreferences?.edit()
+            editor?.putString("bookingID", bookingID)
+            editor?.putString("amountPaid", amountPaid)
+            editor?.putString("startDate", startDate)
+
+            editor?.commit()
+            (activity as MainMenuActivity).goToEditBookings()
+        }else{
+            Toast.makeText( context,"Too late for editting!", Toast.LENGTH_LONG).show()
+        }
 
     }
 

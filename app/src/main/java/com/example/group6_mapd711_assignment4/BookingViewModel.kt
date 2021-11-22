@@ -34,8 +34,8 @@ class BookingViewModel : ViewModel() {
             startDate,customerId,cruiseCode,bookingId)
     }
 
-    fun getBookings(context: Context,cruiseCode: Int?, customerId: Int?) : LiveData<BookingModel>? {
-        liveDataBook = BookingRepository.getBookings(context, cruiseCode, customerId)
+    fun getBookings(context: Context, bookingId: Int?) : LiveData<BookingModel>? {
+        liveDataBook = BookingRepository.getBookings(context, bookingId)
         return liveDataBook
     }
     fun getBookingsByCustomer(context: Context, customerId: Int?) : LiveData<List<BookingModel>>? {

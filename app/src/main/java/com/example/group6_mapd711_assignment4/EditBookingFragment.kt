@@ -11,10 +11,12 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 class EditBookingFragment : Fragment() {
 
+    lateinit var bookingViewModel: BookingViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,38 +36,34 @@ class EditBookingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        customerViewModel = ViewModelProvider(this).get(CustomerViewModel ::class.java)
+        bookingViewModel = ViewModelProvider(this).get(BookingViewModel ::class.java)
 
-        var txtUserName = view.findViewById(R.id.txtNewUserNameEdit) as EditText
-        var strFirstName = view.findViewById(R.id.txtFirstNameEdit) as EditText
-        var strLastName = view.findViewById(R.id.txtLastNameEdit) as EditText
-        var strEmail = view.findViewById(R.id.txtEmailEdit) as EditText
-        var strAddress = view.findViewById(R.id.txtAddressEdit) as EditText
-        var strCity = view.findViewById(R.id.txtCityEdit) as EditText
-        var strPhone = view.findViewById(R.id.txtPhoneEdit) as EditText
-        var strPostalCode= view.findViewById(R.id.txtPostalCodeEdit) as EditText
-        var strNewPassword = view.findViewById(R.id.txtNewPasswordEdit) as EditText
+        var txtNumberOfAdults = view.findViewById(R.id.txtNewNumberOfAdults) as EditText
+        var txtNewNumberOfKids = view.findViewById(R.id.txtNewNumberOfKids) as EditText
+        var txtNewNumberOfSeniors = view.findViewById(R.id.txtNewNumberOfSeniors) as EditText
+        var txtNewDate = view.findViewById(R.id.txtNewDate) as EditText
+        var txtAmountPaid = view.findViewById(R.id.txtAmountPaid) as EditText
+        var txtCustomerId = view.findViewById(R.id.txtCustomerId) as EditText
+        var txtCruiseCode = view.findViewById(R.id.txtCruiseCode) as EditText
+        var txtBookingCode = view.findViewById(R.id.txtBookingCode) as EditText
 
 
-        val shared = this.activity?.getSharedPreferences("UserProfile", AppCompatActivity.MODE_PRIVATE)
-        val userName = shared?.getString("UserName", "")
-        val btnEdit = view.findViewById(R.id.btnEdit) as Button
-        customerViewModel.getCustomer(requireContext(), userName!!)!!.observe(viewLifecycleOwner
+        val shared = this.activity?.getSharedPreferences("BookingProfile", AppCompatActivity.MODE_PRIVATE)
+        val bookingId = shared?.getString("bookingID", "")
+        val btnEditBooking = view.findViewById(R.id.btnEditBooking) as Button
+        bookingViewModel.getBookings(requireContext(), bookingId!!.toInt())!!.observe(viewLifecycleOwner
             , Observer {
-                ( view.findViewById(R.id.txtNewUserNameEdit) as TextView).text =  it.userName
-                ( view.findViewById(R.id.txtFirstNameEdit) as TextView).text =   it.firstName
-                ( view.findViewById(R.id.txtLastNameEdit) as TextView).text =  it.lastName
-                ( view.findViewById(R.id.txtAddressEdit) as TextView).text =  it.address
-                ( view.findViewById(R.id.txtEmailEdit) as TextView).text  =   it.email
-                ( view.findViewById(R.id.txtCityEdit) as TextView).text  =   it.city
-                ( view.findViewById(R.id.txtPostalCodeEdit) as TextView).text  =   it.postalCode
-                ( view.findViewById(R.id.txtPhoneEdit) as TextView).text =   it.telephone
-                ( view.findViewById(R.id.txtNewPasswordEdit) as TextView).text =   it.password
-                //  Toast.makeText( context,"Your Account Has Been Successfully Created", Toast.LENGTH_LONG).show()
-
+                ( view.findViewById(R.id.txtNewNumberOfAdults) as TextView).text =  it.numberOfAdults
+                ( view.findViewById(R.id.txtNewNumberOfKids) as TextView).text =   it.numberOfKids
+                ( view.findViewById(R.id.txtNewNumberOfSeniors) as TextView).text =  it.numberOfSeniors
+                ( view.findViewById(R.id.txtNewDate) as TextView).text =  it.startDate
+                ( view.findViewById(R.id.txtAmountPaid) as TextView).text  =   it.amountPaid
+                ( view.findViewById(R.id.txtCustomerId) as TextView).text  =   it.customerId.toString()
+                ( view.findViewById(R.id.txtCruiseCode) as TextView).text  =   it.cruiseCode.toString()
+                ( view.findViewById(R.id.txtBookingCode) as TextView).text =   it.bookingId.toString()
 
             })
-        btnEdit.setOnClickListener{
+        btnEditBooking.setOnClickListener{
             //validation for the empty values
             if (txtUserName.text.toString().isEmpty()) {
                 txtUserName.error = "Enter User Name"

@@ -13,8 +13,8 @@ interface BookingDao {
     fun updateBooking(bookingModel: BookingModel)
 
     //defining a query method using @Query Annotation
-    @Query("SELECT * FROM booking WHERE cruiseCode =:cruiseCode and customerId =:customerId")
-    fun getBookings(cruiseCode: Int? , customerId: Int?) : LiveData<BookingModel>
+    @Query("SELECT * FROM booking WHERE bookingId =:bookingId")
+    fun getBookings(bookingId: Int?) : LiveData<BookingModel>
 
     //defining a query method using @Query Annotation
     @Query("SELECT * FROM booking WHERE customerId =:customerId")
