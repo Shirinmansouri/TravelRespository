@@ -41,11 +41,11 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
         val shared = this.activity?.getSharedPreferences("BookingProfile", AppCompatActivity.MODE_PRIVATE)
 
         val cruiseType = shared?.getString("CruiseType", "")
-       cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3 nights")
-        //cruiseViewModel.insertCruise(requireContext(),"Caribbean","Zohreh,Ali","$500","4")
-        //cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javid,Ali","$800","8")
-       // cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3")
-       // cruiseViewModel.insertCruise(requireContext(),"Caribbean","Shirin,Ali","$200","1")
+     //  cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3 nights",1)
+      //  cruiseViewModel.insertCruise(requireContext(),"Caribbean","Zohreh,Ali","$500","4",2)
+      //  cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javid,Ali","$800","8",3)
+      // cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3",4)
+      // cruiseViewModel.insertCruise(requireContext(),"Caribbean","Shirin,Ali","$200","1",5)
 
         cruiseViewModel.getAllCruises(requireContext())!!.observe(viewLifecycleOwner
             , Observer { it ->
@@ -69,10 +69,20 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
     override fun onItemClick(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
 
         var cruiseCode : String = p1!!.findViewById<TextView>(R.id.CruiseCode).text as String
+        var cruiseName : String = p1!!.findViewById<TextView>(R.id.CruiseName).text as String
+        var duration : String =  p1!!.findViewById<TextView>(R.id.duration).text as String
+        var price : String = p1!!.findViewById<TextView>(R.id.price).text as String
+        var visitingPlaces = p1!!.findViewById<TextView>(R.id.visitingPlace).text as String
         val sharedPreferences : SharedPreferences? = this.activity?.getSharedPreferences("BookingProfile", 0)
         val editor : SharedPreferences.Editor? = sharedPreferences?.edit()
          editor?.putString("CruiseCode", cruiseCode)
+        editor?.putString("cruiseName", cruiseName)
+        editor?.putString("duration", duration)
+        editor?.putString("price", price)
+        editor?.putString("visitingPlaces", visitingPlaces)
+
          editor?.commit()
+        (activity as MainMenuActivity).goToPackageDetailFragment()
 
     }
 

@@ -14,8 +14,9 @@ class CruiseViewModel : ViewModel() {
     //
     fun insertCruise(context: Context, cruiseName: String, visitingPlaces: String,
                        price : String ,
-                       duration : String) {
-        CruiseRepository.insertCruise(context, cruiseName, visitingPlaces, price, duration)
+                       duration : String,
+                     cruiseCode : Int) {
+        CruiseRepository.insertCruise(context, cruiseName, visitingPlaces, price, duration,cruiseCode)
     }
 
     fun getCruises(context: Context, cruiseCode: Int?) : LiveData<CruiseModel>? {

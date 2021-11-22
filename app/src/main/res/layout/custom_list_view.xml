@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <TextView
         android:id="@+id/CruiseCode"
         android:layout_width="10dp"
@@ -10,16 +12,16 @@
         android:textStyle="bold"
         android:textAlignment="center"
         android:layout_alignBaseline="@+id/CruiseName"
-       />
+        />
     <TextView
         android:id="@+id/CruiseName"
         android:layout_width="100dp"
         android:layout_height="70dp"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="15sp"
+        android:layout_marginLeft="10sp"
         android:layout_marginBottom="2sp"
         android:textStyle="bold"
-       android:textSize="20sp"
+        android:textSize="20sp"
         android:textAlignment="center"
         android:layout_toRightOf="@+id/CruiseCode"/>
     <TextView
@@ -27,7 +29,7 @@
         android:layout_width="50dp"
         android:layout_height="70dp"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="15sp"
+        android:layout_marginLeft="10sp"
         android:layout_marginBottom="2sp"
         android:textStyle="bold"
         android:textSize="15sp"
@@ -35,11 +37,11 @@
         android:layout_toRightOf="@+id/CruiseName"/>
     <TextView
         android:id="@+id/visitingPlace"
-        android:layout_width="100dp"
+        android:layout_width="50dp"
         android:layout_height="70dp"
         android:layout_centerVertical="true"
         android:textAlignment="center"
-        android:layout_marginLeft="15sp"
+        android:layout_marginLeft="10sp"
         android:layout_marginBottom="2sp"
         android:textStyle="bold"
         android:textSize="15dp"
@@ -47,13 +49,26 @@
         android:layout_toRightOf="@+id/duration"/>
     <TextView
         android:id="@+id/price"
-        android:layout_width="80dp"
+        android:layout_width="50dp"
         android:layout_height="70dp"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="15sp"
+        android:layout_marginLeft="20sp"
         android:layout_marginBottom="2sp"
         android:textStyle="bold"
         android:textSize="15sp"
         android:textAlignment="center"
         android:layout_toRightOf="@+id/visitingPlace"/>
+
+    <TextView
+        android:id="@+id/choosePackage"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5sp"
+        android:layout_marginBottom="2sp"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:layout_toRightOf="@+id/price"/>
+
 </RelativeLayout>

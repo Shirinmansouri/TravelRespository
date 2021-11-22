@@ -3,27 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_add_customer_result.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/drawable-v24/button_border.xml" value="0.21614583333333334" />
+        <entry key="app/src/main/res/drawable/edit_text_border.xml" value="0.21614583333333334" />
+        <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.265625" />
+        <entry key="app/src/main/res/layout/activity_add_customer_result.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_create_customer.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_edit_customer.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_edit_customer.xml" value="0.19519927536231885" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.1381340579710145" />
-        <entry key="app/src/main/res/layout/activity_search_customer.xml" value="0.1381340579710145" />
-        <entry key="app/src/main/res/layout/activity_third.xml" value="0.1381340579710145" />
-        <entry key="app/src/main/res/layout/check.html" value="0.1381340579710145" />
-        <entry key="app/src/main/res/layout/custom_list_view.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/fragment_confirm_input_information.xml" value="0.1381340579710145" />
-        <entry key="app/src/main/res/layout/fragment_credit_pay.xml" value="0.1381340579710145" />
-        <entry key="app/src/main/res/layout/fragment_cruise_type.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/fragment_debit_pay.xml" value="0.1381340579710145" />
-        <entry key="app/src/main/res/layout/fragment_edit_customer.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/fragment_packages.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/fragment_payment_options.xml" value="0.1381340579710145" />
-        <entry key="app/src/main/res/layout/just_check.xml" value="0.1381340579710145" />
-        <entry key="app/src/main/res/layout/just_check_honey.xml" value="0.1381340579710145" />
-        <entry key="app/src/main/res/layout/nav_header.xml" value="0.1381340579710145" />
-        <entry key="app/src/main/res/menu/nav_menu.xml" value="0.11145833333333334" />
+        <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.22146739130434784" />
+        <entry key="app/src/main/res/layout/custom_list_view.xml" value="0.16983695652173914" />
+        <entry key="app/src/main/res/layout/cutome_list_view.xml" value="0.21784420289855072" />
+        <entry key="app/src/main/res/layout/fragment_confirm_input_information.xml" value="0.21784420289855072" />
+        <entry key="app/src/main/res/layout/fragment_credit_pay.xml" value="0.21784420289855072" />
+        <entry key="app/src/main/res/layout/fragment_cruise_type.xml" value="0.19157608695652173" />
+        <entry key="app/src/main/res/layout/fragment_edit_customer.xml" value="0.19157608695652173" />
+        <entry key="app/src/main/res/layout/fragment_final_booking.xml" value="0.213768115942029" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19157608695652173" />
+        <entry key="app/src/main/res/layout/fragment_package_detail.xml" value="0.21784420289855072" />
+        <entry key="app/src/main/res/layout/fragment_packages.xml" value="0.21784420289855072" />
+        <entry key="app/src/main/res/layout/fragment_payment_options.xml" value="0.21784420289855072" />
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.1956521739130435" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.23385416666666667" />
+        <entry key="app/src/main/res/menu/nav_menu.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>
