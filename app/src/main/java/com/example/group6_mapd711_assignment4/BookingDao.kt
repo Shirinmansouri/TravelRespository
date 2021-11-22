@@ -1,16 +1,16 @@
 package com.example.group6_mapd711_assignment4
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface BookingDao {
     //defining an insert method using @Insert Annotation
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertBooking(bookingModel: BookingModel)
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun updateBooking(bookingModel: BookingModel)
 
     //defining a query method using @Query Annotation
     @Query("SELECT * FROM booking WHERE cruiseCode =:cruiseCode and customerId =:customerId")

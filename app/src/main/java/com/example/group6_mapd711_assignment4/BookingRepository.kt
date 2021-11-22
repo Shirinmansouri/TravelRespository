@@ -60,5 +60,27 @@ class BookingRepository {
             bookingModel = travelDatabase!!.bookingDao().getBookingsByCustomer(customerId)
             return bookingModel
         }
+        fun UpdateBooking(context: Context ,  numberOfAdults: String, numberOfKids: String,
+                           numberOfSeniors: String,
+                           amountPaid: String,
+                           startDate : String,
+                           customerId : Int,
+                           cruiseCode : Int,
+                           bookingId : Int)
+        {
+        travelDatabase = initializeDB(context)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val bookingDetails= BookingModel(numberOfAdults ,numberOfKids ,
+                numberOfSeniors ,
+                amountPaid,
+                startDate ,
+                customerId ,
+                cruiseCode,
+                bookingId
+            )
+            travelDatabase!!.bookingDao().updateBooking(bookingDetails)
+        }
     }
+}
 }

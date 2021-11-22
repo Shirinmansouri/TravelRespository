@@ -23,6 +23,16 @@ class BookingViewModel : ViewModel() {
         BookingRepository.insertBooking(context, numberOfAdults, numberOfKids,numberOfSeniors,amountPaid,
             startDate,customerId,cruiseCode)
     }
+    fun updateBooking(context: Context, numberOfAdults: String, numberOfKids: String,
+                      numberOfSeniors: String,
+                      amountPaid: String,
+                      startDate : String,
+                      customerId : Int,
+                      cruiseCode : Int,
+                     bookingId : Int) {
+        BookingRepository.UpdateBooking(context, numberOfAdults, numberOfKids,numberOfSeniors,amountPaid,
+            startDate,customerId,cruiseCode,bookingId)
+    }
 
     fun getBookings(context: Context,cruiseCode: Int?, customerId: Int?) : LiveData<BookingModel>? {
         liveDataBook = BookingRepository.getBookings(context, cruiseCode, customerId)
