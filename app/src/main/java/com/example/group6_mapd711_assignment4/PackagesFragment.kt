@@ -48,9 +48,9 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
 
 
 
-//        cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3 nights",2)
-//        cruiseViewModel.insertCruise(requireContext(),"Caribbean","Zohreh,Ali","$500","4",1)
-//        cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javid,Ali","$800","8",3)
+      //  cruiseViewModel.insertCruise(requireContext(),"Bahamas","Toronto,Ottawa","$400","3 nights",2)
+      //  cruiseViewModel.insertCruise(requireContext(),"Caribbean","Vancouver,Kelowna","$500","4",1)
+       // cruiseViewModel.insertCruise(requireContext(),"Cuba","Javid,Ali","$800","8",3)
 //       cruiseViewModel.insertCruise(requireContext(),"Bahamas","Javad,Ali","$400","3",4)
 //       cruiseViewModel.insertCruise(requireContext(),"Caribbean","Shirin,Ali","$200","1",5)
 

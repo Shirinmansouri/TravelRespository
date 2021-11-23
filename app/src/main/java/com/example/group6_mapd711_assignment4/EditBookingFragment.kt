@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import java.time.LocalDate
+import java.time.Period
 import java.util.*
 import kotlin.math.roundToInt
 
@@ -79,17 +80,15 @@ class EditBookingFragment : Fragment() {
                 txtCustomerId  =   it.customerId.toString()
                 txtCruiseCode  =   it.cruiseCode.toString()
                 txtBookingCode =   it.bookingId.toString()
-                val checkDate = LocalDate.of(year,month,day-14)
-                if (checkDate > LocalDate.now()) {
+                val date = LocalDate.of(year,month,day)
+               // val checkDate = LocalDate.of(year,month,day-14)
+                var period = Period.between( LocalDate.now(),date )
+                if (period.days>=14) {
                     IsValidForCancel = true
                 }
 
             })
 
-
-        //val date = LocalDate.of(year,month,day)
-
-        if (IsValidForCancel) {
             btnCancel.setOnClickListener {
                 /*bookingViewModel.deleteBooking(
                     requireContext(),
@@ -102,6 +101,8 @@ class EditBookingFragment : Fragment() {
                     bookingModel.cruiseCode!!,
                     bookingModel.bookingId!!
                 )*/
+                if (IsValidForCancel)
+                {
                 var NumberOfAdults = view.findViewById(R.id.spinnerNewNumberOfAdults) as Spinner
                 var NewNumberOfKids = view.findViewById(R.id.spinnerNewNumberOfKids) as Spinner
                 var NewNumberOfSeniors = view.findViewById(R.id.spinnerNewNumberOfSeniors) as Spinner
@@ -115,11 +116,15 @@ class EditBookingFragment : Fragment() {
 
                 bookingViewModel.deleteBooking(requireContext(),  NumberOfAdults.selectedItem.toString(),NewNumberOfKids.selectedItem.toString(),NewNumberOfSeniors.selectedItem.toString(),
                     txtAmountPaid.trim(),strDate,txtCustomerId.toInt(),txtCruiseCode.toInt(),txtBookingCode.toInt())
+                    Toast.makeText( context,"Booking Successfully Canceled", Toast.LENGTH_LONG).show()
+                    (activity as MainMenuActivity).goToHome()
             }
-        }else{
+
+        else
+        {
             //var toShowToast : String = checkDate.toString()
-            Toast.makeText( context,"It is too late to edit!", Toast.LENGTH_LONG).show()
-        }
+            Toast.makeText( context,"It is too late to Cancel!", Toast.LENGTH_LONG).show()
+        }}
         btnEditBooking.setOnClickListener{
 
             var NumberOfAdults = view.findViewById(R.id.spinnerNewNumberOfAdults) as Spinner

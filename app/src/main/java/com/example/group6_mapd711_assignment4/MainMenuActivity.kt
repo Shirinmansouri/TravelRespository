@@ -79,6 +79,10 @@ class MainMenuActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+    fun goToHome()
+    {
+        loadFragment(HomeFragment())
+    }
     fun goToEditBookings()
     {
         loadFragment(EditBookingFragment())

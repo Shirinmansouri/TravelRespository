@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import java.time.LocalDate
+import java.time.Period
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -106,8 +107,10 @@ class ShowBookingsFragment : Fragment(), AdapterView.OnItemClickListener {
         //var date : Date = Date(year-1900, month-1, day)
 
         val date = LocalDate.of(year,month,day)
-        val checkDate = LocalDate.of(date.year,date.monthValue,date.dayOfMonth-7)
-        if (checkDate > LocalDate.now()) {
+
+        var period = Period.between( LocalDate.now(),date )
+        //val checkDate = LocalDate.of(date.year,date.monthValue,date.dayOfMonth-7)
+        if (period.days >=7) {
 
             val sharedPreferences: SharedPreferences? =
                 this.activity?.getSharedPreferences("BookingProfile", 0)
@@ -119,7 +122,7 @@ class ShowBookingsFragment : Fragment(), AdapterView.OnItemClickListener {
             editor?.commit()
             (activity as MainMenuActivity).goToEditBookings()
         }else{
-            var toShowToast = checkDate.toString()
+            var toShowToast = date.toString()
             Toast.makeText( context,"After "+toShowToast+", it is too late to edit!", Toast.LENGTH_LONG).show()
         }
 
