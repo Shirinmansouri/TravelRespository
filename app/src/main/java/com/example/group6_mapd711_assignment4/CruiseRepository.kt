@@ -11,6 +11,7 @@ class CruiseRepository {
         var travelDatabase: TravelDatabase? = null
         var cruiseModel: LiveData<CruiseModel>? = null
        var lstCruiseModel :LiveData<List<CruiseModel>>? = null
+        var priceResult : LiveData<String>? = null
         //initialize database
         fun initializeDB(context: Context): TravelDatabase {
             return TravelDatabase.getDataseClient(context)
@@ -56,5 +57,6 @@ class CruiseRepository {
             lstCruiseModel = travelDatabase!!.cruiseDao().getCruisesByName(cruiseName)
             return lstCruiseModel
         }
+
     }
 }

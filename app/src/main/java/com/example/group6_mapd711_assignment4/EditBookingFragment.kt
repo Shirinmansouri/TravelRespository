@@ -13,10 +13,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import kotlin.math.roundToInt
 
 class EditBookingFragment : Fragment() {
 
     lateinit var bookingViewModel: BookingViewModel
+    lateinit var cruiseViewModel: CruiseViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +39,7 @@ class EditBookingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         bookingViewModel = ViewModelProvider(this).get(BookingViewModel ::class.java)
+        cruiseViewModel = ViewModelProvider(this).get(CruiseViewModel ::class.java)
 
         var txtNumberOfAdults = view.findViewById(R.id.txtNewNumberOfAdults) as EditText
         var txtNewNumberOfKids = view.findViewById(R.id.txtNewNumberOfKids) as EditText
@@ -83,6 +86,21 @@ class EditBookingFragment : Fragment() {
             }
 
             else {
+                /*
+                var price : String = ""
+                cruiseViewModel.getCruises(requireContext(), txtCruiseCode.text.toString().toInt())!!.observe(viewLifecycleOwner,
+                {
+                    price = it.price
+                })
+
+                var finalPrice1 = (price?.let { (txtNumberOfAdults.text.toString())?.toFloat()?.times(it.toFloat()) })
+                var finalPrice2 = price?.toFloat()?.let {
+                    (txtNewNumberOfKids.text.toString())?.toFloat()
+                        ?.times(it.div(2))
+                }
+                var finalPrice = finalPrice2?.let { finalPrice1?.plus(it) }
+                var finalPriceWithTax = (finalPrice?.times(1.13))?.roundToInt().toString()
+                */
                     bookingViewModel.updateBooking(requireContext(), txtNumberOfAdults.text.toString().trim(),txtNewNumberOfKids.text.toString().trim(),txtNewNumberOfSeniors.text.toString().trim(),
                         txtAmountPaid.text.toString().trim(),txtNewDate.text.toString().trim(),txtCustomerId.text.toString().trim().toInt(),txtCruiseCode.text.toString().trim().toInt(),txtBookingCode.text.toString().trim().toInt())
 
