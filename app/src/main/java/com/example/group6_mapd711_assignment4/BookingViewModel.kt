@@ -33,6 +33,16 @@ class BookingViewModel : ViewModel() {
         BookingRepository.UpdateBooking(context, numberOfAdults, numberOfKids,numberOfSeniors,amountPaid,
             startDate,customerId,cruiseCode,bookingId)
     }
+    fun deleteBooking(context: Context, numberOfAdults: String, numberOfKids: String,
+                      numberOfSeniors: String,
+                      amountPaid: String,
+                      startDate : String,
+                      customerId : Int,
+                      cruiseCode : Int,
+                      bookingId : Int) {
+        BookingRepository.DeleteBooking(context, numberOfAdults, numberOfKids,numberOfSeniors,amountPaid,
+            startDate,customerId,cruiseCode,bookingId)
+    }
 
     fun getBookings(context: Context, bookingId: Int?) : LiveData<BookingModel>? {
         liveDataBook = BookingRepository.getBookings(context, bookingId)
