@@ -1,22 +1,27 @@
 package com.example.group6_mapd711_assignment4
 
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import java.time.LocalDate
+import java.util.*
 import kotlin.math.roundToInt
 
 class EditBookingFragment : Fragment() {
 
     lateinit var bookingViewModel: BookingViewModel
     lateinit var cruiseViewModel: CruiseViewModel
-
+    lateinit var bookingModel:  BookingModel
+    lateinit var oldDate : LocalDate
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -32,11 +37,13 @@ class EditBookingFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_edit_booking, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         bookingViewModel = ViewModelProvider(this).get(BookingViewModel ::class.java)
         cruiseViewModel = ViewModelProvider(this).get(CruiseViewModel ::class.java)
+
 
 
       //  var txtNewDate = view.findViewById(R.id.txtNewDate) as TextView
@@ -48,11 +55,13 @@ class EditBookingFragment : Fragment() {
         var txtCustomerId : String = ""
         var txtCruiseCode : String = ""
         var txtBookingCode : String = ""
+        var IsValidForCancel : Boolean = false
 
 
         val shared = this.activity?.getSharedPreferences("BookingProfile", AppCompatActivity.MODE_PRIVATE)
         val bookingId = shared?.getString("bookingID", "")
         val btnEditBooking = view.findViewById(R.id.btnEditBooking) as Button
+        val btnCancel= view.findViewById<Button>(R.id.cancelBooking)
         bookingViewModel.getBookings(requireContext(), bookingId!!.toInt())!!.observe(viewLifecycleOwner
             , Observer {
 
@@ -70,8 +79,47 @@ class EditBookingFragment : Fragment() {
                 txtCustomerId  =   it.customerId.toString()
                 txtCruiseCode  =   it.cruiseCode.toString()
                 txtBookingCode =   it.bookingId.toString()
+                val checkDate = LocalDate.of(year,month,day-14)
+                if (checkDate > LocalDate.now()) {
+                    IsValidForCancel = true
+                }
 
             })
+
+
+        //val date = LocalDate.of(year,month,day)
+
+        if (IsValidForCancel) {
+            btnCancel.setOnClickListener {
+                /*bookingViewModel.deleteBooking(
+                    requireContext(),
+                    bookingModel.numberOfAdults,
+                    bookingModel.numberOfKids,
+                    bookingModel.numberOfSeniors,
+                    bookingModel.amountPaid,
+                    bookingModel.startDate,
+                    bookingModel.customerId!!,
+                    bookingModel.cruiseCode!!,
+                    bookingModel.bookingId!!
+                )*/
+                var NumberOfAdults = view.findViewById(R.id.spinnerNewNumberOfAdults) as Spinner
+                var NewNumberOfKids = view.findViewById(R.id.spinnerNewNumberOfKids) as Spinner
+                var NewNumberOfSeniors = view.findViewById(R.id.spinnerNewNumberOfSeniors) as Spinner
+
+                var chosenDate = view.findViewById(R.id.datePicker2) as DatePicker
+                val day = chosenDate.dayOfMonth
+                var month = chosenDate.month
+                month ++
+                val year = chosenDate.year
+                val strDate = "$year-$month-$day"
+
+                bookingViewModel.deleteBooking(requireContext(),  NumberOfAdults.selectedItem.toString(),NewNumberOfKids.selectedItem.toString(),NewNumberOfSeniors.selectedItem.toString(),
+                    txtAmountPaid.trim(),strDate,txtCustomerId.toInt(),txtCruiseCode.toInt(),txtBookingCode.toInt())
+            }
+        }else{
+            //var toShowToast : String = checkDate.toString()
+            Toast.makeText( context,"It is too late to edit!", Toast.LENGTH_LONG).show()
+        }
         btnEditBooking.setOnClickListener{
 
             var NumberOfAdults = view.findViewById(R.id.spinnerNewNumberOfAdults) as Spinner
