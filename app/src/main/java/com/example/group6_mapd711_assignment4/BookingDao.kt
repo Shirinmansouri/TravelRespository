@@ -12,6 +12,8 @@ interface BookingDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateBooking(bookingModel: BookingModel)
 
+    @Delete()
+    fun DeleteBooking(bookingModel: BookingModel)
     //defining a query method using @Query Annotation
     @Query("SELECT * FROM booking WHERE bookingId =:bookingId")
     fun getBookings(bookingId: Int?) : LiveData<BookingModel>
