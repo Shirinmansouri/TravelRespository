@@ -9,7 +9,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SearchCustomerActivity"
         >
 
         <RelativeLayout
@@ -35,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_below="@+id/headerCustomerSearch"
-            tools:context=".SearchCustomerActivity">
+            >
 
             <ListView
                 android:id="@+id/listViewCustomerSearch"
