@@ -65,6 +65,10 @@ class MainMenuActivity : AppCompatActivity() {
                         loadFragment(ShowBookingsFragment())
                         draweLayout.closeDrawers()
                     }
+                    R.id.nav_Logger -> {
+                        loadFragment(LoggerFragment())
+                        draweLayout.closeDrawers()
+                    }
 
                 }
                 true

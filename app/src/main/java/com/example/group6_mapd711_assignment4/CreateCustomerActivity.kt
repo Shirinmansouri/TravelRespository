@@ -2,18 +2,18 @@ package com.example.group6_mapd711_assignment4
 
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.content.SharedPreferences
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_main.*
+import java.time.LocalTime
 
 class CreateCustomerActivity : AppCompatActivity() {
 
@@ -21,6 +21,7 @@ class CreateCustomerActivity : AppCompatActivity() {
     lateinit var context: Context
     lateinit var strUserName: String
     lateinit var customerViewModel: CustomerViewModel
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_customer)
@@ -109,6 +110,13 @@ class CreateCustomerActivity : AppCompatActivity() {
                     }
                 })
 
+                //log insert customer
+                var logStr = LocalTime.now().toString() + " INSERT CUSTOMER=> Username:" + txtUserName.text.toString().trim() +
+                        " First Name:" + strFirstName.text.toString().trim() + " Last Name:" + strLastName.text.toString().trim() +
+                        " Address:" + strAddress.text.toString().trim() + " City:" + strCity.text.toString().trim() +
+                        " Postal Code:" + strPostalCode.text.toString().trim() + " Phone:" + strPhone.text.toString().trim() +
+                        " Email:" + strEmail.text.toString().trim() +"\n"
+                FileLogger.saveData(logStr, context.applicationContext)
             }
         }
 

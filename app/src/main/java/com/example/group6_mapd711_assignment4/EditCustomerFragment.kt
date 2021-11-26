@@ -1,8 +1,8 @@
 package com.example.group6_mapd711_assignment4
 
-import android.content.Context
-import android.content.Intent
+
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,10 +12,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.group6_mapd711_assignment4.R
+import java.time.LocalTime
 
 class EditCustomerFragment : Fragment() {
 
@@ -39,6 +40,7 @@ class EditCustomerFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_edit_customer, container, false)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -127,7 +129,6 @@ class EditCustomerFragment : Fragment() {
                         strLastName.text.toString().trim(),strAddress.text.toString().trim(),strCity.text.toString().trim(),strPostalCode.text.toString().trim(),strPhone.text.toString().trim(),
                         strEmail.text.toString().trim(),it.customerId)
 
-
                     val sharedPreferences : SharedPreferences? = this.activity?.getSharedPreferences("UserProfile", 0)
                     val editor : SharedPreferences.Editor? = sharedPreferences?.edit()
                     editor?.putString("FirstName",  strFirstName.text.toString().trim())
@@ -135,15 +136,16 @@ class EditCustomerFragment : Fragment() {
                     editor?.putString("Email",   strEmail.text.toString().trim())
                     editor?.commit()
                     Toast.makeText( context,"Information Successfully Updated", Toast.LENGTH_LONG).show()
-
-
-
                 })
 
+                //log update customer
+                var logStr = LocalTime.now().toString() + " UPDATE CUSTOMER=> Username:" + txtUserName.text.toString().trim() +
+                        " First Name:" + strFirstName.text.toString().trim() + " Last Name:" + strLastName.text.toString().trim() +
+                        " Address:" + strAddress.text.toString().trim() + " City:" + strCity.text.toString().trim() +
+                        " Postal Code:" + strPostalCode.text.toString().trim() + " Phone:" + strPhone.text.toString().trim() +
+                        " Email:" + strEmail.text.toString().trim() +"\n"
+                FileLogger.saveData(logStr, requireContext().applicationContext)
             }
         }
-
     }
-
-
 }

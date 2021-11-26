@@ -13,9 +13,6 @@
             android:name=".ThirdActivity"
             android:exported="true" />
         <activity
-            android:name=".SearchCustomerActivity"
-            android:exported="true" />
-        <activity
             android:name=".EditCustomerActivity"
             android:exported="true" />
         <activity
@@ -27,10 +24,6 @@
         <activity
             android:name=".CreateCustomerActivity"
             android:exported="true" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="true"
-            android:label="@string/title_activity_login" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
