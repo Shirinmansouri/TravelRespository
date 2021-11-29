@@ -83,7 +83,7 @@ class EditBookingFragment : Fragment() {
                 val date = LocalDate.of(year,month,day)
                // val checkDate = LocalDate.of(year,month,day-14)
                 var period = Period.between( LocalDate.now(),date )
-                if (period.days>=14) {
+                if (period.days >=14 || period.months>=1 || period.years>=1) {
                     IsValidForCancel = true
                 }
 

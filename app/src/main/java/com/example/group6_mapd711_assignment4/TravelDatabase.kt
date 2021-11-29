@@ -3,7 +3,7 @@ package com.example.group6_mapd711_assignment4
 import android.content.Context
 import androidx.room.*
 
-@Database(entities =[CustomerModel::class,BookingModel ::class , CruiseModel :: class] , version = 3, exportSchema = false)
+@Database(entities =[CustomerModel::class,BookingModel ::class , CruiseModel :: class] , version = 4, exportSchema = false)
 abstract class TravelDatabase : RoomDatabase() {
     //instantiating Customer DAO object
     abstract  fun cruiseDao() : CruiseDao
