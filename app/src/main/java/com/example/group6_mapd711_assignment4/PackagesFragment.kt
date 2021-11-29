@@ -46,8 +46,8 @@ var flag : Boolean = true
 
         val cruiseType = shared?.getString("CruiseType", "")
 
-//        if(flag) {
-//            flag =false
+//        if (flag) {
+//            flag=false
 //            cruiseViewModel.insertCruise(
 //                requireContext(),
 //                "Bahamas",
@@ -129,8 +129,8 @@ var flag : Boolean = true
 //                "1",
 //                10
 //            )
+//
 //        }
-
 
 
         cruiseViewModel.getCruisesByName(requireContext(),cruiseType.toString())!!.observe(viewLifecycleOwner
