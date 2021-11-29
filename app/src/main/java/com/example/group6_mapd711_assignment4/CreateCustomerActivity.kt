@@ -98,6 +98,14 @@ class CreateCustomerActivity : AppCompatActivity() {
                             strLastName.text.toString().trim(),strAddress.text.toString().trim(),strCity.text.toString().trim(),strPostalCode.text.toString().trim(),strPhone.text.toString().trim(),
                             strEmail.text.toString().trim())
 
+                        //log insert customer
+                        var logStr = LocalTime.now().toString() + " INSERT CUSTOMER=> Username:" + txtUserName.text.toString().trim() +
+                                " First Name:" + strFirstName.text.toString().trim() + " Last Name:" + strLastName.text.toString().trim() +
+                                " Address:" + strAddress.text.toString().trim() + " City:" + strCity.text.toString().trim() +
+                                " Postal Code:" + strPostalCode.text.toString().trim() + " Phone:" + strPhone.text.toString().trim() +
+                                " Email:" + strEmail.text.toString().trim() +"\n"
+                        FileLogger.saveData(logStr, context.applicationContext)
+
                         var intent = Intent(this, MainMenuActivity::class.java)
                         val sharedPreferences : SharedPreferences = this.getSharedPreferences("UserProfile", 0)
                         val editor : SharedPreferences.Editor = sharedPreferences.edit()
@@ -110,13 +118,7 @@ class CreateCustomerActivity : AppCompatActivity() {
                     }
                 })
 
-                //log insert customer
-                var logStr = LocalTime.now().toString() + " INSERT CUSTOMER=> Username:" + txtUserName.text.toString().trim() +
-                        " First Name:" + strFirstName.text.toString().trim() + " Last Name:" + strLastName.text.toString().trim() +
-                        " Address:" + strAddress.text.toString().trim() + " City:" + strCity.text.toString().trim() +
-                        " Postal Code:" + strPostalCode.text.toString().trim() + " Phone:" + strPhone.text.toString().trim() +
-                        " Email:" + strEmail.text.toString().trim() +"\n"
-                FileLogger.saveData(logStr, context.applicationContext)
+
             }
         }
 
