@@ -81,6 +81,7 @@ class MainMenuActivity : AppCompatActivity() {
                         draweLayout.closeDrawers()
                     }
                     R.id.nav_Logout -> {
+                        mediaPlayer!!.stop()
                         val preferences = getSharedPreferences("UserProfile", 0)
                         preferences.edit().remove("UserName").commit()
                         startActivity(intent)
