@@ -13,7 +13,29 @@
         android:layout_height="match_parent"
         android:id="@+id/menu_ConstraintLayout">
 
+        <Button
+            android:id="@+id/buttonStop"
+            android:layout_width="82dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginEnd="297dp"
+            android:text="No music"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/buttonResume"
+            android:layout_width="82dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="297dp"
+            android:text="Go music"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonStop" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
@@ -26,5 +48,7 @@
         android:id="@+id/nav_view">
 
     </com.google.android.material.navigation.NavigationView>
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -3,10 +3,14 @@ package com.example.group6_mapd711_assignment4
 import android.app.ProgressDialog.show
 import android.content.Intent
 import android.content.SharedPreferences
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.text.method.TextKeyListener.clear
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -16,9 +20,38 @@ import com.google.android.material.navigation.NavigationView
 
 class MainMenuActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
+    var mediaPlayer : MediaPlayer? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
+
+        var buttonStop = findViewById<Button>(R.id.buttonStop)
+        var buttonStart = findViewById<Button>(R.id.buttonResume)
+        mediaPlayer = MediaPlayer.create(this, R.raw.mys)
+        mediaPlayer!!.isLooping = true
+        buttonStart.isEnabled = false
+        Toast.makeText(applicationContext, "Music is on!", Toast.LENGTH_SHORT).show()
+        mediaPlayer!!.start()
+        buttonStart.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                Toast.makeText(applicationContext, "Music is resumed!", Toast.LENGTH_SHORT).show()
+                mediaPlayer!!.start()
+                buttonStart.isEnabled = false
+                buttonStop.isEnabled = true
+            }
+        })
+
+        buttonStop.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                Toast.makeText(applicationContext, "Music is paused!", Toast.LENGTH_SHORT).show()
+                mediaPlayer!!.pause()
+                buttonStart.isEnabled = true
+                buttonStop.isEnabled = false
+            }
+        })
+
+
 
         val shared =  getSharedPreferences("UserProfile", AppCompatActivity.MODE_PRIVATE)
         val intent = Intent(this, MainActivity::class.java)
