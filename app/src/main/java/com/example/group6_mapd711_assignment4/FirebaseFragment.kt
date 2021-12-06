@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -35,21 +36,31 @@ class FirebaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        database = Firebase.database.reference
-        database.child("CruiseDatabase").child("Logs").addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                for (postSnapshot in dataSnapshot.children) {
-                    view.findViewById<TextView>(R.id.logTexViewFirebase).text =  view.findViewById<TextView>(R.id.logTexViewFirebase).text.toString() +"\n " + postSnapshot.value.toString()
-                }
-            }
+        val shared =  this.activity?.getSharedPreferences("UserProfile", AppCompatActivity.MODE_PRIVATE)
+        val username = shared?.getString("UserName", "")
+        if (username == "admin")
+        {
+            database = Firebase.database.reference
+            database.child("CruiseDatabase").child("Logs")
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for (postSnapshot in dataSnapshot.children) {
+                            view.findViewById<TextView>(R.id.logTexViewFirebase).text =
+                                view.findViewById<TextView>(R.id.logTexViewFirebase).text.toString() + "\n " + postSnapshot.value.toString()
+                        }
+                    }
 
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Getting Post failed, log a message
-               // Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
-                // ...
-            }
-        })
+                    override fun onCancelled(databaseError: DatabaseError) {
+                        // Getting Post failed, log a message
+                        // Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+                        // ...
+                    }
+                })
+        }
+    else
+    {
+        view.findViewById<TextView>(R.id.logTexViewFirebase).text = "User doesn't have permission to see the logs!"
     }
 
-
+}
 }
