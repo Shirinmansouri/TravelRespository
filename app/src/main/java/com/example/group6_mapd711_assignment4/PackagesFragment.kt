@@ -19,7 +19,7 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
     lateinit var cruiseViewModel: CruiseViewModel
     var arrayList: ArrayList<CruiseModel> = ArrayList()
     var adapter: ListViewAdapter? = null
-
+var flag : Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,20 +46,91 @@ class PackagesFragment : Fragment(), AdapterView.OnItemClickListener {
 
         val cruiseType = shared?.getString("CruiseType", "")
 
-/*
-        cruiseViewModel.insertCruise(requireContext(),"Bahamas","New York,Toronto","$400","3",2)
-        cruiseViewModel.insertCruise(requireContext(),"Caribbean","Montreal,Gualop","$500","4",1)
-        cruiseViewModel.insertCruise(requireContext(),"Cuba","Cuba City,Panama","$800","8",3)
-        cruiseViewModel.insertCruise(requireContext(),"Star","San Jose,Irvine","$600","3",4)
-        cruiseViewModel.insertCruise(requireContext(),"Sampler","LA,New Mexico","$200","1",5)
-
-        cruiseViewModel.insertCruise(requireContext(),"Sampler","New York,Toronto","$300","3",6)
-        cruiseViewModel.insertCruise(requireContext(),"Bahamas","Montreal,Gualop","$700","4",7)
-        cruiseViewModel.insertCruise(requireContext(),"Caribbean","Cuba City,Panama","$900","8",8)
-        cruiseViewModel.insertCruise(requireContext(),"Cuba","San Jose,Irvine","$1000","3",9)
-        cruiseViewModel.insertCruise(requireContext(),"Star","LA,New Mexico","$1200","1",10)
-
- */
+//        if (flag) {
+//            flag=false
+//            cruiseViewModel.insertCruise(
+//                requireContext(),
+//                "Bahamas",
+//                "New York,Toronto",
+//                "$400",
+//                "3",
+//                2
+//            )
+//            cruiseViewModel.insertCruise(
+//                requireContext(),
+//                "Caribbean",
+//                "Montreal,Gualop",
+//                "$500",
+//                "4",
+//                1
+//            )
+//            cruiseViewModel.insertCruise(
+//                requireContext(),
+//                "Cuba",
+//                "Cuba City,Panama",
+//                "$800",
+//                "8",
+//                3
+//            )
+//            cruiseViewModel.insertCruise(
+//                requireContext(),
+//                "Star",
+//                "San Jose,Irvine",
+//                "$600",
+//                "3",
+//                4
+//            )
+//            cruiseViewModel.insertCruise(
+//                requireContext(),
+//                "Sampler",
+//                "LA,New Mexico",
+//                "$200",
+//                "1",
+//                5
+//            )
+//
+//            cruiseViewModel.insertCruise(
+//                requireContext(),
+//                "Sampler",
+//                "New York,Toronto",
+//                "$300",
+//                "3",
+//                6
+//            )
+//            cruiseViewModel.insertCruise(
+//                requireContext(),
+//                "Bahamas",
+//                "Montreal,Gualop",
+//                "$700",
+//                "4",
+//                7
+//            )
+//            cruiseViewModel.insertCruise(
+//                requireContext(),
+//                "Caribbean",
+//                "Cuba City,Panama",
+//                "$900",
+//                "8",
+//                8
+//            )
+//            cruiseViewModel.insertCruise(
+//                requireContext(),
+//                "Cuba",
+//                "San Jose,Irvine",
+//                "$1000",
+//                "3",
+//                9
+//            )
+//            cruiseViewModel.insertCruise(
+//                requireContext(),
+//                "Star",
+//                "LA,New Mexico",
+//                "$1200",
+//                "1",
+//                10
+//            )
+//
+//        }
 
 
         cruiseViewModel.getCruisesByName(requireContext(),cruiseType.toString())!!.observe(viewLifecycleOwner

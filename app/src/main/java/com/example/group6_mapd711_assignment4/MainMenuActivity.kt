@@ -98,7 +98,14 @@ class MainMenuActivity : AppCompatActivity() {
                         loadFragment(ShowBookingsFragment())
                         draweLayout.closeDrawers()
                     }
-
+                    R.id.nav_Logger -> {
+                        loadFragment(LoggerFragment())
+                        draweLayout.closeDrawers()
+                    }
+                    R.id.nav_fireLogger -> {
+                        loadFragment(FirebaseFragment())
+                        draweLayout.closeDrawers()
+                    }
                 }
                 true
             }
@@ -111,6 +118,10 @@ class MainMenuActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+    fun goToHome()
+    {
+        loadFragment(HomeFragment())
     }
     fun goToEditBookings()
     {

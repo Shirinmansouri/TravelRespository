@@ -15,6 +15,23 @@
         android:title="BookingList"
         android:icon="@drawable/ic_baseline_list_24"
         />
+
+
+
+    <item android:title="Logs">
+    <menu>
+        <item android:id="@+id/nav_Logger"
+            android:title="Text Log"
+            android:icon="@drawable/ic_baseline_list_24"
+            />
+        <item android:id="@+id/nav_fireLogger"
+            android:title="Firebase Log"
+            android:icon="@drawable/ic_baseline_list_24"
+            />
+    </menu>
+    </item>
+
+
     <item android:title="Profile">
 
 <menu>

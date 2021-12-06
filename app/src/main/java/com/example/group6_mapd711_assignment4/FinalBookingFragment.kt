@@ -1,6 +1,5 @@
 package com.example.group6_mapd711_assignment4
 
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,9 +9,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import java.time.LocalTime
+import java.util.*
 import kotlin.random.Random
 
 
@@ -73,5 +72,14 @@ class FinalBookingFragment : Fragment() {
         }
 
         view.findViewById<TextView>(R.id.textViewCode).text = codeInText
+
+        //log insert booking
+        var logStr = LocalTime.now().toString() + " INSERT BOOKING=>  NumOfAdults:" + dataAdults.toString() +
+                " NumOfKids:" + dataKids.toString() + " NumOfSeniors:" + dataSenior.toString() + " $:" + amountPaid.toString() +
+                 " Cruise date:" + startDate.toString() + " Customer Id:" + customerId.toString() + " Cruise Code:" + cruiseCode.toString() +  "\n"
+        FileLogger.saveData(logStr, requireContext().applicationContext)
+        var variableName = object: ReadAndWriteFirebase(){}
+        variableName.writeNewLog(LocalTime.now().toString() ,logStr)
     }
+
 }

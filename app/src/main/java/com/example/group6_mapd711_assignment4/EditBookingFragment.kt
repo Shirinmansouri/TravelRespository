@@ -1,6 +1,5 @@
 package com.example.group6_mapd711_assignment4
 
-import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,8 +12,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import java.time.LocalDate
+import java.time.LocalTime
 import java.util.*
-import kotlin.math.roundToInt
+
 
 class EditBookingFragment : Fragment() {
 
@@ -115,6 +115,13 @@ class EditBookingFragment : Fragment() {
 
                 bookingViewModel.deleteBooking(requireContext(),  NumberOfAdults.selectedItem.toString(),NewNumberOfKids.selectedItem.toString(),NewNumberOfSeniors.selectedItem.toString(),
                     txtAmountPaid.trim(),strDate,txtCustomerId.toInt(),txtCruiseCode.toInt(),txtBookingCode.toInt())
+
+                //log delete booking
+                var logStr = LocalTime.now().toString() + " DELETE BOOKING => NumOfAdults:" + NumberOfAdults.selectedItem.toString() +
+                        " NumOfKids:" + NewNumberOfKids.selectedItem.toString() + " NumOfSeniors:" + NewNumberOfSeniors.selectedItem.toString() +
+                        " Cruise date:" + strDate + " Customer Id:" + txtCruiseCode + " Cruise Code:" + txtCruiseCode +  "\n"
+                FileLogger.saveData(logStr, requireContext().applicationContext)
+
             }
         }else{
             //var toShowToast : String = checkDate.toString()
@@ -148,13 +155,17 @@ class EditBookingFragment : Fragment() {
             val year = chosenDate.year
             val strDate = "$year-$month-$day"
                     bookingViewModel.updateBooking(requireContext(),  NumberOfAdults.selectedItem.toString(),NewNumberOfKids.selectedItem.toString(),NewNumberOfSeniors.selectedItem.toString(),
-                        txtAmountPaid.trim(),strDate,txtCustomerId.toInt(),txtCruiseCode.toInt(),txtBookingCode.toInt())
+                        txtAmountPaid.trim(),strDate,txtCustomerId.toInt(),txtCruiseCode.toInt(),txtCruiseCode.toInt())
 
                     Toast.makeText( context,"Information Successfully Updated", Toast.LENGTH_LONG).show()
 
-
+            //log update booking
+            var logStr = LocalTime.now().toString() + " UPDATE BOOKING => NumOfAdults:" + NumberOfAdults.selectedItem.toString() +
+                    " NumOfKids:" + NewNumberOfKids.selectedItem.toString() + " NumOfSeniors:" + NewNumberOfSeniors.selectedItem.toString() +
+                    " Cruise date:" + strDate + " Customer Id:" + txtCruiseCode + " Cruise Code:" + txtCruiseCode +  "\n"
+            FileLogger.saveData(logStr, requireContext().applicationContext)
+            var variableName = object: ReadAndWriteFirebase(){}
+            variableName.writeNewLog(LocalTime.now().toString() ,logStr)
         }
-
     }
-
 }
