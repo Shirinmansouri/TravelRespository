@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import java.time.LocalDate
 import java.time.LocalTime
+import java.util.*
 
 
 class EditBookingFragment : Fragment() {
@@ -163,6 +164,8 @@ class EditBookingFragment : Fragment() {
                     " NumOfKids:" + NewNumberOfKids.selectedItem.toString() + " NumOfSeniors:" + NewNumberOfSeniors.selectedItem.toString() +
                     " Cruise date:" + strDate + " Customer Id:" + txtCruiseCode + " Cruise Code:" + txtCruiseCode +  "\n"
             FileLogger.saveData(logStr, requireContext().applicationContext)
+            var variableName = object: ReadAndWriteFirebase(){}
+            variableName.writeNewLog(LocalTime.now().toString() ,logStr)
         }
     }
 }

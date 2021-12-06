@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import java.time.LocalTime
+import java.util.*
 
 class EditCustomerFragment : Fragment() {
 
@@ -145,6 +146,9 @@ class EditCustomerFragment : Fragment() {
                         " Postal Code:" + strPostalCode.text.toString().trim() + " Phone:" + strPhone.text.toString().trim() +
                         " Email:" + strEmail.text.toString().trim() +"\n"
                 FileLogger.saveData(logStr, requireContext().applicationContext)
+                var variableName = object: ReadAndWriteFirebase(){}
+                variableName.writeNewLog(LocalTime.now().toString() ,logStr)
+
             }
         }
     }

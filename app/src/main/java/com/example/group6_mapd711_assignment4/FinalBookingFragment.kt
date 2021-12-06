@@ -11,6 +11,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import java.time.LocalTime
+import java.util.*
 import kotlin.random.Random
 
 
@@ -77,6 +78,8 @@ class FinalBookingFragment : Fragment() {
                 " NumOfKids:" + dataKids.toString() + " NumOfSeniors:" + dataSenior.toString() + " $:" + amountPaid.toString() +
                  " Cruise date:" + startDate.toString() + " Customer Id:" + customerId.toString() + " Cruise Code:" + cruiseCode.toString() +  "\n"
         FileLogger.saveData(logStr, requireContext().applicationContext)
+        var variableName = object: ReadAndWriteFirebase(){}
+        variableName.writeNewLog(LocalTime.now().toString() ,logStr)
     }
 
 }

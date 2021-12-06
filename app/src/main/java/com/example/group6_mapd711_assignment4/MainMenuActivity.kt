@@ -69,7 +69,10 @@ class MainMenuActivity : AppCompatActivity() {
                         loadFragment(LoggerFragment())
                         draweLayout.closeDrawers()
                     }
-
+                    R.id.nav_fireLogger -> {
+                        loadFragment(FirebaseFragment())
+                        draweLayout.closeDrawers()
+                    }
                 }
                 true
             }
