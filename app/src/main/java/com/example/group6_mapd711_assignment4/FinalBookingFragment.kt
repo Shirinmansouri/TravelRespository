@@ -1,7 +1,11 @@
 package com.example.group6_mapd711_assignment4
 
+import android.annotation.SuppressLint
+import android.graphics.pdf.PdfDocument
 import android.os.Build
 import android.os.Bundle
+import android.print.PrintAttributes
+import android.print.pdf.PrintedPdfDocument
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +14,7 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.internal.ViewUtils.getContentView
 import java.time.LocalTime
 import java.util.*
 import kotlin.random.Random
@@ -37,6 +42,7 @@ class FinalBookingFragment : Fragment() {
 
     }
 
+    @SuppressLint("RestrictedApi")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -56,10 +62,10 @@ class FinalBookingFragment : Fragment() {
         customerViewModel = ViewModelProvider(this).get(CustomerViewModel ::class.java)
         bookingViewModel = ViewModelProvider(this).get(BookingViewModel ::class.java)
 
-         /*customerViewModel.getCustomer(requireContext(), sharedProfile?.getString("UserName","")!!)!!.observe(viewLifecycleOwner
-            , Observer {
-                customerId = it.customerId!!
-            })*/
+        /*customerViewModel.getCustomer(requireContext(), sharedProfile?.getString("UserName","")!!)!!.observe(viewLifecycleOwner
+           , Observer {
+               customerId = it.customerId!!
+           })*/
 
         bookingViewModel.insertBooking(requireContext(),dataAdults.toString(),dataKids.toString(),dataSenior.toString(),amountPaid.toString() ,startDate.toString(),
             customerId,cruiseCode)
@@ -76,10 +82,12 @@ class FinalBookingFragment : Fragment() {
         //log insert booking
         var logStr = LocalTime.now().toString() + " INSERT BOOKING=>  NumOfAdults:" + dataAdults.toString() +
                 " NumOfKids:" + dataKids.toString() + " NumOfSeniors:" + dataSenior.toString() + " $:" + amountPaid.toString() +
-                 " Cruise date:" + startDate.toString() + " Customer Id:" + customerId.toString() + " Cruise Code:" + cruiseCode.toString() +  "\n"
+                " Cruise date:" + startDate.toString() + " Customer Id:" + customerId.toString() + " Cruise Code:" + cruiseCode.toString() +  "\n"
         FileLogger.saveData(logStr, requireContext().applicationContext)
         var variableName = object: ReadAndWriteFirebase(){}
         variableName.writeNewLog(LocalTime.now().toString() ,logStr)
+
+
     }
 
 }

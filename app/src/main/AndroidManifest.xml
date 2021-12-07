@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Group6_MAPD711_Assignment4">
         <activity
+            android:name=".PrintActivity"
+            android:exported="true" />
+        <activity
             android:name=".ThirdActivity"
             android:exported="true" />
         <activity

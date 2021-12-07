@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AppSettingsFragment">
+
+
+
+    <Switch
+        android:id="@+id/switchForMusic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Music "
+        android:layout_marginStart="150dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroupForMusic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="150dp"
+        app:layout_constraintTop_toBottomOf="@+id/switchForMusic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButtonLightMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:text="Light Music"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/radioGroupForMusic" />
+
+        <RadioButton
+            android:id="@+id/radioButtonWildMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:text="Wild Music"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/radioGroupForMusic" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonApplySettings"
+        android:layout_width="122dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="150dp"
+        android:backgroundTint="@color/blue"
+        android:text="Apply"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupForMusic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</FrameLayout>

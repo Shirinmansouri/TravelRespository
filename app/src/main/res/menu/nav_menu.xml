@@ -15,6 +15,10 @@
         android:title="BookingList"
         android:icon="@drawable/ic_baseline_list_24"
         />
+    <item android:id="@+id/nav_appSettings"
+        android:title="App Settings"
+        android:icon="@drawable/ic_baseline_list_24"
+        />
 
 
 
