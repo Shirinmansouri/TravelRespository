@@ -117,6 +117,10 @@ class MainMenuActivity : AppCompatActivity() {
                         loadFragment(AppSettingsFragment())
                         draweLayout.closeDrawers()
                     }
+                    R.id.nav_Statistics -> {
+                        loadFragment(StatisticsFragment())
+                        draweLayout.closeDrawers()
+                    }
                 }
                 true
             }
