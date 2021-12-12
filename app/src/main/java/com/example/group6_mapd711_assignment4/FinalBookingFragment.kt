@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +26,7 @@ class FinalBookingFragment : Fragment() {
 
     lateinit var customerViewModel: CustomerViewModel
     lateinit var bookingViewModel: BookingViewModel
-
+    lateinit var cruiseViewModel: CruiseViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -61,14 +62,18 @@ class FinalBookingFragment : Fragment() {
         //= shared?.getString("customerId" , "").toString().toInt()
         customerViewModel = ViewModelProvider(this).get(CustomerViewModel ::class.java)
         bookingViewModel = ViewModelProvider(this).get(BookingViewModel ::class.java)
-
+        cruiseViewModel = ViewModelProvider(this).get(CruiseViewModel ::class.java)
         /*customerViewModel.getCustomer(requireContext(), sharedProfile?.getString("UserName","")!!)!!.observe(viewLifecycleOwner
            , Observer {
                customerId = it.customerId!!
            })*/
-
+        var variableName = object: ReadAndWriteFirebase(){}
+        var cruiseName : String =""
         bookingViewModel.insertBooking(requireContext(),dataAdults.toString(),dataKids.toString(),dataSenior.toString(),amountPaid.toString() ,startDate.toString(),
             customerId,cruiseCode)
+
+
+
         var codeInText = ""
         for(i in 1..6)
         {
@@ -84,7 +89,7 @@ class FinalBookingFragment : Fragment() {
                 " NumOfKids:" + dataKids.toString() + " NumOfSeniors:" + dataSenior.toString() + " $:" + amountPaid.toString() +
                 " Cruise date:" + startDate.toString() + " Customer Id:" + customerId.toString() + " Cruise Code:" + cruiseCode.toString() +  "\n"
         FileLogger.saveData(logStr, requireContext().applicationContext)
-        var variableName = object: ReadAndWriteFirebase(){}
+
         variableName.writeNewLog(LocalTime.now().toString() ,logStr)
 
 

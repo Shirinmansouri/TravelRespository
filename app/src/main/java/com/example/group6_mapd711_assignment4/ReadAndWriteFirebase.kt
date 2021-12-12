@@ -6,6 +6,15 @@ import com.google.firebase.ktx.Firebase
 import java.util.*
 import java. util. UUID;
 import android.R.string.no
+import android.util.Log
+import android.widget.TextView
+import android.widget.Toast
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import java.security.AccessController.getContext
+import com.google.firebase.database.FirebaseDatabase
+
 
 
 
@@ -20,5 +29,5 @@ abstract class ReadAndWriteFirebase {
         database = Firebase.database.reference
         database.child("CruiseDatabase").child("Logs").child(uuid.toString()).setValue(_firebaseLog)
     }
-    // [END rtdb_write_new_log]
+
 }
