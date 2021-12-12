@@ -4,9 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/button_border.xml" value="0.21614583333333334" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.33229166666666665" />
         <entry key="app/src/main/res/drawable/edit_text_border.xml" value="0.21614583333333334" />
+        <entry key="app/src/main/res/drawable/ic_baseline_bar_chart_24.xml" value="0.4041666666666667" />
+        <entry key="app/src/main/res/drawable/ic_baseline_book_online_24.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.33229166666666665" />
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.265625" />
+        <entry key="app/src/main/res/drawable/ic_baseline_list_24.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.33229166666666665" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.146875" />
+        <entry key="app/src/main/res/drawable/login_background.xml" value="0.33229166666666665" />
+        <entry key="app/src/main/res/drawable/loginic_background.xml" value="0.33229166666666665" />
         <entry key="app/src/main/res/layout/activity_add_customer_result.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_create_customer.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_edit_customer.xml" value="0.19519927536231885" />
@@ -31,6 +39,8 @@
         <entry key="app/src/main/res/layout/fragment_packages.xml" value="0.21784420289855072" />
         <entry key="app/src/main/res/layout/fragment_payment_options.xml" value="0.21784420289855072" />
         <entry key="app/src/main/res/layout/fragment_show_bookings.xml" value="0.2056159420289855" />
+        <entry key="app/src/main/res/layout/fragment_statistic.xml" value="0.2125" />
+        <entry key="app/src/main/res/layout/fragment_statistics.xml" value="0.278125" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.1956521739130435" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.23385416666666667" />
         <entry key="app/src/main/res/menu/nav_menu.xml" value="0.24947916666666667" />
