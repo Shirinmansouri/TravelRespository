@@ -13,6 +13,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import java.time.LocalDate
 import java.time.LocalTime
+import java.time.Period
+import java.time.temporal.ChronoUnit
 import java.util.*
 
 
@@ -41,12 +43,13 @@ class EditBookingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         bookingViewModel = ViewModelProvider(this).get(BookingViewModel ::class.java)
         cruiseViewModel = ViewModelProvider(this).get(CruiseViewModel ::class.java)
 
 
 
-      //  var txtNewDate = view.findViewById(R.id.txtNewDate) as TextView
+        //  var txtNewDate = view.findViewById(R.id.txtNewDate) as TextView
         /*var txtAmountPaid = view.findViewById(R.id.txtAmountPaid) as EditText
         var txtCustomerId = view.findViewById(R.id.txtCustomerId) as EditText
         var txtCruiseCode = view.findViewById(R.id.txtCruiseCode) as EditText
@@ -79,29 +82,28 @@ class EditBookingFragment : Fragment() {
                 txtCustomerId  =   it.customerId.toString()
                 txtCruiseCode  =   it.cruiseCode.toString()
                 txtBookingCode =   it.bookingId.toString()
-                val checkDate = LocalDate.of(year,month,day-14)
-                if (checkDate > LocalDate.now()) {
+                val date = LocalDate.of(year,month,day)
+                // val checkDate = LocalDate.of(year,month,day-14)
+                var period = Period.between( LocalDate.now(),date )
+                if (period.days >=14 || period.months>=1 || period.years>=1) {
                     IsValidForCancel = true
                 }
 
             })
-
-
-        //val date = LocalDate.of(year,month,day)
-
-        if (IsValidForCancel) {
-            btnCancel.setOnClickListener {
-                /*bookingViewModel.deleteBooking(
-                    requireContext(),
-                    bookingModel.numberOfAdults,
-                    bookingModel.numberOfKids,
-                    bookingModel.numberOfSeniors,
-                    bookingModel.amountPaid,
-                    bookingModel.startDate,
-                    bookingModel.customerId!!,
-                    bookingModel.cruiseCode!!,
-                    bookingModel.bookingId!!
-                )*/
+        btnCancel.setOnClickListener {
+            /*bookingViewModel.deleteBooking(
+                requireContext(),
+                bookingModel.numberOfAdults,
+                bookingModel.numberOfKids,
+                bookingModel.numberOfSeniors,
+                bookingModel.amountPaid,
+                bookingModel.startDate,
+                bookingModel.customerId!!,
+                bookingModel.cruiseCode!!,
+                bookingModel.bookingId!!
+            )*/
+            if (IsValidForCancel)
+            {
                 var NumberOfAdults = view.findViewById(R.id.spinnerNewNumberOfAdults) as Spinner
                 var NewNumberOfKids = view.findViewById(R.id.spinnerNewNumberOfKids) as Spinner
                 var NewNumberOfSeniors = view.findViewById(R.id.spinnerNewNumberOfSeniors) as Spinner
@@ -115,49 +117,46 @@ class EditBookingFragment : Fragment() {
 
                 bookingViewModel.deleteBooking(requireContext(),  NumberOfAdults.selectedItem.toString(),NewNumberOfKids.selectedItem.toString(),NewNumberOfSeniors.selectedItem.toString(),
                     txtAmountPaid.trim(),strDate,txtCustomerId.toInt(),txtCruiseCode.toInt(),txtBookingCode.toInt())
-
-                //log delete booking
-                var logStr = LocalTime.now().toString() + " DELETE BOOKING => NumOfAdults:" + NumberOfAdults.selectedItem.toString() +
-                        " NumOfKids:" + NewNumberOfKids.selectedItem.toString() + " NumOfSeniors:" + NewNumberOfSeniors.selectedItem.toString() +
-                        " Cruise date:" + strDate + " Customer Id:" + txtCruiseCode + " Cruise Code:" + txtCruiseCode +  "\n"
-                FileLogger.saveData(logStr, requireContext().applicationContext)
-
+                Toast.makeText( context,"Booking Successfully Canceled", Toast.LENGTH_LONG).show()
+                (activity as MainMenuActivity).goToHome()
             }
-        }else{
-            //var toShowToast : String = checkDate.toString()
-            Toast.makeText( context,"It is too late to edit!", Toast.LENGTH_LONG).show()
-        }
+
+            else
+            {
+                //var toShowToast : String = checkDate.toString()
+                Toast.makeText( context,"It is too late to Cancel!", Toast.LENGTH_LONG).show()
+            }}
         btnEditBooking.setOnClickListener{
 
             var NumberOfAdults = view.findViewById(R.id.spinnerNewNumberOfAdults) as Spinner
             var NewNumberOfKids = view.findViewById(R.id.spinnerNewNumberOfKids) as Spinner
             var NewNumberOfSeniors = view.findViewById(R.id.spinnerNewNumberOfSeniors) as Spinner
 
-                /*
-                var price : String = ""
-                cruiseViewModel.getCruises(requireContext(), txtCruiseCode.text.toString().toInt())!!.observe(viewLifecycleOwner,
-                {
-                    price = it.price
-                })
+            /*
+            var price : String = ""
+            cruiseViewModel.getCruises(requireContext(), txtCruiseCode.text.toString().toInt())!!.observe(viewLifecycleOwner,
+            {
+                price = it.price
+            })
 
-                var finalPrice1 = (price?.let { (txtNumberOfAdults.text.toString())?.toFloat()?.times(it.toFloat()) })
-                var finalPrice2 = price?.toFloat()?.let {
-                    (txtNewNumberOfKids.text.toString())?.toFloat()
-                        ?.times(it.div(2))
-                }
-                var finalPrice = finalPrice2?.let { finalPrice1?.plus(it) }
-                var finalPriceWithTax = (finalPrice?.times(1.13))?.roundToInt().toString()
-                */
+            var finalPrice1 = (price?.let { (txtNumberOfAdults.text.toString())?.toFloat()?.times(it.toFloat()) })
+            var finalPrice2 = price?.toFloat()?.let {
+                (txtNewNumberOfKids.text.toString())?.toFloat()
+                    ?.times(it.div(2))
+            }
+            var finalPrice = finalPrice2?.let { finalPrice1?.plus(it) }
+            var finalPriceWithTax = (finalPrice?.times(1.13))?.roundToInt().toString()
+            */
             var chosenDate = view.findViewById(R.id.datePicker2) as DatePicker
             val day = chosenDate.dayOfMonth
             var month = chosenDate.month
             month ++
             val year = chosenDate.year
             val strDate = "$year-$month-$day"
-                    bookingViewModel.updateBooking(requireContext(),  NumberOfAdults.selectedItem.toString(),NewNumberOfKids.selectedItem.toString(),NewNumberOfSeniors.selectedItem.toString(),
-                        txtAmountPaid.trim(),strDate,txtCustomerId.toInt(),txtCruiseCode.toInt(),txtCruiseCode.toInt())
+            bookingViewModel.updateBooking(requireContext(),  NumberOfAdults.selectedItem.toString(),NewNumberOfKids.selectedItem.toString(),NewNumberOfSeniors.selectedItem.toString(),
+                txtAmountPaid.trim(),strDate,txtCustomerId.toInt(),txtCruiseCode.toInt(),txtBookingCode.toInt())
 
-                    Toast.makeText( context,"Information Successfully Updated", Toast.LENGTH_LONG).show()
+            Toast.makeText( context,"Information Successfully Updated", Toast.LENGTH_LONG).show()
 
             //log update booking
             var logStr = LocalTime.now().toString() + " UPDATE BOOKING => NumOfAdults:" + NumberOfAdults.selectedItem.toString() +

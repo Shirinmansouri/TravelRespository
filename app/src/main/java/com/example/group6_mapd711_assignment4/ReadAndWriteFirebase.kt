@@ -27,7 +27,10 @@ abstract class ReadAndWriteFirebase {
         val _firebaseLog =FirebaseLog(logDate,logString)
         val uuid = UUID.randomUUID()
         database = Firebase.database.reference
-        database.child("CruiseDatabase").child("Logs").child(uuid.toString()).setValue(_firebaseLog)
+        database.child("CruiseDatabase").
+        child("Logs").
+        child(uuid.toString()).
+        setValue(_firebaseLog)
     }
 
 }

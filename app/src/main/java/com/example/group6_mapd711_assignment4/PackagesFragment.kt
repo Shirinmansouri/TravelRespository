@@ -45,7 +45,7 @@ var flag : Boolean = true
         val shared = this.activity?.getSharedPreferences("BookingProfile", AppCompatActivity.MODE_PRIVATE)
 
         val cruiseType = shared?.getString("CruiseType", "")
-
+//
 //        if (flag) {
 //            flag=false
 //            cruiseViewModel.insertCruise(
